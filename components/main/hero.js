@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
+import HotelIcon from '../icons/hotel';
+import HouseIcon from '../icons/house';
+import HostelIcon from '../icons/hostel';
+import OutdoorsIcon from '../icons/outdoors';
 import styles from '../../styles/Home.module.css';
 
 export default function Hero() {
@@ -37,6 +40,12 @@ export default function Hero() {
           <p className={styles.heroEclipseText}>
             500+ places to stay across the country
           </p>
+        </div>
+        <div className='heroIconsDiv'>
+          <HotelIcon />
+          <HouseIcon />
+          <HostelIcon />
+          <OutdoorsIcon />
         </div>
       </div>
     </div>

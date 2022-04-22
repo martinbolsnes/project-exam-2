@@ -56,6 +56,12 @@
   font-size: 18px;
 }
 
+.heroIconsDiv {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+
 .heroIconsBg {
   background-color: #bbdefb;
   border-radius: 8px;
