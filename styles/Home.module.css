@@ -25,3 +25,46 @@
 .logoTextSpan {
   color: #07192c;
 }
+
+.heroImg {
+  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  border: solid 1px #07192c;
+}
+
+.heroEclipse {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-color: #07192c;
+  position: relative;
+  position: absolute;
+  top: 70%;
+  left: 0;
+}
+
+.heroEclipseText {
+  color: white;
+  text-align: center;
+  width: 60%;
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  font-family: 'Prompt', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.heroIconsBg {
+  background-color: #bbdefb;
+  border-radius: 8px;
+  padding: 5px;
+  margin: 30px;
+}
+
+.hotelIcon {
+  position: absolute;
+  top: 0;
+  right: 50%;
+}
