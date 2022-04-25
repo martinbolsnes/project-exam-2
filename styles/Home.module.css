@@ -40,8 +40,8 @@
   background-color: #07192c;
   position: relative;
   position: absolute;
-  top: 70%;
-  left: 0;
+  top: 60%;
+  left: -5%;
 }
 
 .heroEclipseText {
@@ -57,9 +57,33 @@
 }
 
 .heroIconsDiv {
+  position: relative;
+}
+
+.outdoorsDiv {
   position: absolute;
-  top: 50%;
-  right: 50%;
+  top: 68%;
+  right: 10%;
+}
+
+.hostelDiv {
+  position: absolute;
+  top: 48%;
+  right: 2%;
+}
+
+.houseDiv {
+  position: absolute;
+  top: 26%;
+  right: 2%;
+}
+
+.hotelDiv {
+  position: absolute;
+  top: 6%;
+  right: 10%;
+  display: flex;
+  align-items: center;
 }
 
 .heroIconsBg {
@@ -67,10 +91,4 @@
   border-radius: 8px;
   padding: 5px;
   margin: 30px;
-}
-
-.hotelIcon {
-  position: absolute;
-  top: 0;
-  right: 50%;
 }
