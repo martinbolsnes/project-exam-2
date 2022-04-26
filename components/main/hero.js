@@ -17,12 +17,12 @@ export default function Hero() {
     getHeroImg();
   });
   return (
-    <div className='flex items-center'>
-      <div className='sm:text-center lg:text-left w-3/5'>
-        <h1 className='w-4/5 text-4xl tracking-tight font-extrabold font-serif2 text-black sm:text-5xl md:text-6xl'>
+    <div className='flex flex-col md:flex-row items-center'>
+      <div className='sm:text-center lg:text-left w-full lg:w-3/5'>
+        <h1 className='w-4/5 text-4xl tracking-tight font-extrabold font-serif2 text-black sm:text-5xl md:text-6xl text-left'>
           Find and book a great experience in Norway
         </h1>
-        <div className='mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start'>
+        <div className='mt-5 sm:mt-8 sm:flex justify-start'>
           <div className='rounded-md shadow'>
             <a
               href='/search'
@@ -33,14 +33,14 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className='w-2/5 relative mr-20 flex'>
+      <div className='w-full lg:w-2/5 relative mr-0 lg:mr-20 mt-6 sm:mt-0 flex flex-col sm:flex-row items-center'>
         <img className={styles.heroImg} src={heroImg}></img>
         <div className={styles.heroEclipse}>
           <p className={styles.heroEclipseText}>
             500+ places to stay across the country
           </p>
         </div>
-        <div className='heroIconsDiv'>
+        <div className='heroIconsDiv hidden md:block'>
           <HotelIcon />
           <HouseIcon />
           <HostelIcon />
