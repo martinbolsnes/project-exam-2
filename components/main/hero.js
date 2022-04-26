@@ -12,7 +12,6 @@ export default function Hero() {
     const getHeroImg = async () => {
       const result = await axios.get('http://localhost:1337/api/hero-banner');
       const res = result.data.data.attributes.image_url;
-      console.log(res);
       setHeroImg(res);
     };
     getHeroImg();

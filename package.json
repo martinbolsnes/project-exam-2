@@ -17,6 +17,7 @@
     "next": "12.1.5",
     "react": "18.0.0",
     "react-dom": "18.0.0",
+    "react-multi-carousel": "^2.8.0",
     "react-tooltip": "^4.2.21",
     "tabler-icons-react": "^1.46.0"
   },

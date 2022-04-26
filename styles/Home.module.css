@@ -92,3 +92,56 @@
   padding: 5px;
   margin: 30px;
 }
+
+.sliderSection {
+  margin-top: 84px;
+  margin-bottom: 84px;
+}
+
+.sectionHeading,
+.cardHeading {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+.sectionHeading {
+  font-size: 24px;
+  margin-bottom: 16px;
+  margin-top: 48px;
+}
+
+.cardHeading {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.cardTextDiv {
+  font-family: 'Prompt', sans-serif;
+  padding-left: 0.5rem;
+  color: #2196f3;
+  font-weight: bold;
+}
+
+.cardPrice {
+  opacity: 50%;
+  color: black;
+  font-weight: normal;
+}
+
+.recommendedSlideImg {
+  width: 95%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.footer {
+  padding-top: 64px;
+  padding-left: auto;
+  padding-right: auto;
+}
+
+.footerIcons {
+  margin-right: 16px;
+  opacity: 50%;
+}
