@@ -49,7 +49,7 @@ export default function RecommendedSlider() {
             return (
               <div className={styles.sliderDiv} key={item.id}>
                 <img
-                  className={styles.recommendedSlideImg}
+                  className={styles.slideImg}
                   src={item.attributes.card_image}
                 ></img>
                 <div className='flex justify-between pl-2'>
