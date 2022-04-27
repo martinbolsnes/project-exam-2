@@ -56,7 +56,7 @@ export default function RecommendedSlider() {
       const result = await axios.get(
         'http://localhost:1337/api/accommodations?populate=*'
       );
-      const res = result?.data.data;
+      const res = result?.data.data[0].attributes.card_image;
       console.log(res);
       setRecommended(res);
     };
@@ -64,7 +64,8 @@ export default function RecommendedSlider() {
   }, []);
   return (
     <>
-      {recommended.map((item) => {
+      <img src={recommended} alt='' className={styles.slideImg}></img>
+      {/* {recommended.map((item) => {
         if (item.attributes.recommended === true) {
           return (
             <div className={styles.sliderDiv} key={item.id}>
@@ -90,7 +91,7 @@ export default function RecommendedSlider() {
             </div>
           );
         }
-      })}
+      })} */}
     </>
   );
 }
