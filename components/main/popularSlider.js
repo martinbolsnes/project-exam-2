@@ -20,7 +20,7 @@ const responsive = {
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
-    items: 2,
+    items: 1,
     slidesToSlide: 1,
   },
 };
@@ -42,6 +42,7 @@ export default function PopularSlider() {
     <>
       <Carousel
         responsive={responsive}
+        deviceType={responsive}
         autoPlay={false}
         shouldResetAutoplay={false}
         removeArrowOnDeviceType={['tablet', 'mobile']}
