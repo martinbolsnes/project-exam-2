@@ -74,7 +74,12 @@ export default function RecommendedSlider() {
           if (item.attributes.recommended === true) {
             return (
               <SwiperSlide key={item.id}>
-                <div className={styles.sliderDiv}>
+                <img
+                  src={item.attributes.card_image}
+                  className={styles.slideImg}
+                  alt=''
+                ></img>
+                {/* <div className={styles.sliderDiv}>
                   <div className={styles.slideImg}>
                     <Image
                       layout='fill'
@@ -96,7 +101,7 @@ export default function RecommendedSlider() {
                     ${item.attributes.price}
                     <span className={styles.cardPrice}> /per night</span>{' '}
                   </p>
-                </div>
+                </div> */}
               </SwiperSlide>
             );
           }
