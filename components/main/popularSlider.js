@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 import { Star } from 'tabler-icons-react';
 import Image from 'next/image';
 
@@ -17,11 +16,13 @@ const responsive = {
     breakpoint: { max: 1024, min: 464 },
     items: 2,
     slidesToSlide: 2,
+    partialVisibilityGutter: 50,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
     slidesToSlide: 1,
+    partialVisibilityGutter: 50,
   },
 };
 
