@@ -45,7 +45,7 @@ export default function RecommendedSlider() {
         autoPlay={false}
         shouldResetAutoplay={false}
         removeArrowOnDeviceType={['tablet', 'mobile']}
-        containerClass={styles.carouselContainer}
+        containerClass='w-full'
       >
         {recommended.map((item) => {
           if (item.attributes.recommended === true) {
