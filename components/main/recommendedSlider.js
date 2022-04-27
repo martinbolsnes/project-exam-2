@@ -73,7 +73,9 @@ export default function RecommendedSlider() {
                   <Image
                     layout='fill'
                     className={styles.slideImg}
-                    src={item.attributes.card_image}
+                    src={
+                      'https://raw.githubusercontent.com/martinbolsnes/holidaze-backend/main/public/images/john-o-nolan-6f_ANCcbj3o-unsplash%20(1).jpg'
+                    }
                     alt=''
                   ></Image>
                 </div>
