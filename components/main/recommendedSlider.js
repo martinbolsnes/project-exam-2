@@ -73,12 +73,10 @@ export default function RecommendedSlider() {
         {recommended.map((item) => {
           if (item.attributes.recommended === true) {
             return (
-              <SwiperSlide>
-                <div className={styles.sliderDiv} key={item.id}>
+              <SwiperSlide key={item.id}>
+                <div className={styles.sliderDiv}>
                   <div className={styles.slideImg}>
                     <Image
-                      width={1000}
-                      height={1000}
                       layout='fill'
                       className={styles.slideImg}
                       src={item.attributes.card_image}
