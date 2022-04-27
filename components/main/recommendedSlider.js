@@ -64,49 +64,33 @@ export default function RecommendedSlider() {
   }, []);
   return (
     <>
-      <Swiper
-        modules={[Navigation, Pagination]}
-        slidesPerView={3}
-        navigation
-        pagination={{ clickable: true }}
-      >
-        {recommended.map((item) => {
-          if (item.attributes.recommended === true) {
-            return (
-              <SwiperSlide key={item.id}>
-                <img
-                  src={item.attributes.card_image}
+      {recommended.map((item) => {
+        if (item.attributes.recommended === true) {
+          return (
+            <div className={styles.sliderDiv} key={item.id}>
+              <div className={styles.slideImg}>
+                <Image
+                  layout='fill'
                   className={styles.slideImg}
+                  src={item.attributes.card_image}
                   alt=''
-                ></img>
-                {/* <div className={styles.sliderDiv}>
-                  <div className={styles.slideImg}>
-                    <Image
-                      layout='fill'
-                      className={styles.slideImg}
-                      src={item.attributes.card_image}
-                      alt=''
-                    ></Image>
-                  </div>
-                  <div className='flex justify-between pl-2'>
-                    <h2 className={styles.cardHeading}>
-                      {item.attributes.name}
-                    </h2>
-                    <div className='flex items-center pr-6'>
-                      <Star color='#EAD200' size={20} fill='#EAD200'></Star>
-                      <p className='pl-2'>{item.attributes.rating}</p>
-                    </div>
-                  </div>
-                  <p className={styles.cardTextDiv}>
-                    ${item.attributes.price}
-                    <span className={styles.cardPrice}> /per night</span>{' '}
-                  </p>
-                </div> */}
-              </SwiperSlide>
-            );
-          }
-        })}
-      </Swiper>
+                ></Image>
+              </div>
+              <div className='flex justify-between pl-2'>
+                <h2 className={styles.cardHeading}>{item.attributes.name}</h2>
+                <div className='flex items-center pr-6'>
+                  <Star color='#EAD200' size={20} fill='#EAD200'></Star>
+                  <p className='pl-2'>{item.attributes.rating}</p>
+                </div>
+              </div>
+              <p className={styles.cardTextDiv}>
+                ${item.attributes.price}
+                <span className={styles.cardPrice}> /per night</span>{' '}
+              </p>
+            </div>
+          );
+        }
+      })}
     </>
   );
 }
