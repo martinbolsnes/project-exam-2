@@ -44,6 +44,7 @@ export default function RecommendedSlider() {
         responsive={responsive}
         autoPlay={false}
         shouldResetAutoplay={false}
+        removeArrowOnDeviceType={['tablet', 'mobile']}
       >
         {recommended.map((item) => {
           if (item.attributes.recommended === true) {
