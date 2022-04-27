@@ -108,10 +108,9 @@
 }
 
 .slideImg {
-  width: 95%;
+  width: 33%;
   height: 250px;
   position: relative;
-  object-fit: cover;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   opacity: 1;
@@ -120,16 +119,6 @@
 .slideImg:hover {
   opacity: 0.8;
   cursor: pointer;
-}
-
-.carouselContainer {
-  width: 100%;
-}
-
-.slick-slider {
-  display: table !important;
-  table-layout: fixed !important;
-  width: 100% !important;
 }
 
 .footer {
