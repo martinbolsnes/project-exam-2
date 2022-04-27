@@ -1,28 +1,18 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 import { Star } from 'tabler-icons-react';
 import Image from 'next/image';
+import Slider from 'react-slick';
 
 import styles from '../../styles/Home.module.css';
 
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-    slidesToSlide: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-    slidesToSlide: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-    slidesToSlide: 1,
-  },
+const settings = {
+  dots: true,
+  infinite: false,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  arrows: true,
 };
 
 export default function RecommendedSlider() {
@@ -40,13 +30,7 @@ export default function RecommendedSlider() {
   }, []);
   return (
     <>
-      <Carousel
-        responsive={responsive}
-        autoPlay={false}
-        shouldResetAutoplay={false}
-        removeArrowOnDeviceType={['tablet', 'mobile']}
-        containerClass='w-full'
-      >
+      <Slider {...settings}>
         {recommended.map((item) => {
           if (item.attributes.recommended === true) {
             return (
@@ -76,7 +60,7 @@ export default function RecommendedSlider() {
             );
           }
         })}
-      </Carousel>
+      </Slider>
     </>
   );
 }
