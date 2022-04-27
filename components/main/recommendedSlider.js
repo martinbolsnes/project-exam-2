@@ -64,15 +64,17 @@ export default function RecommendedSlider() {
   }, []);
   return (
     <>
-      <div className={styles.slideImg}>
-        <Image
-          width={250}
-          height={250}
-          layout='fill'
-          src={recommended}
-          alt=''
-          className={styles.slideImg}
-        ></Image>
+      <div className='relative'>
+        <div className={styles.slideImg}>
+          <Image
+            width={250}
+            height={250}
+            layout='fill'
+            src={recommended}
+            alt=''
+            className={styles.slideImg}
+          ></Image>
+        </div>
       </div>
       {/* {recommended.map((item) => {
         if (item.attributes.recommended === true) {
