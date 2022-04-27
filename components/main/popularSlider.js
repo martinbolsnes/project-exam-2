@@ -66,8 +66,6 @@ export default function PopularSlider() {
               <div className={styles.sliderDiv} key={item.id}>
                 <div className={styles.slideImg}>
                   <Image
-                    width={1000}
-                    height={1000}
                     layout='fill'
                     className={styles.slideImg}
                     src={item.attributes.card_image}

@@ -5,11 +5,11 @@ import Image from 'next/image';
 import Slider from '@ant-design/react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Swiper, SwiperSlide } from 'swiper/react';
+/* import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import 'swiper/css/pagination'; */
 
 import styles from '../../styles/Home.module.css';
 
@@ -56,7 +56,7 @@ export default function RecommendedSlider() {
       const result = await axios.get(
         'http://localhost:1337/api/accommodations?populate=*'
       );
-      const res = result?.data.data[0].attributes.card_image;
+      const res = result?.data.data;
       console.log(res);
       setRecommended(res);
     };
@@ -64,45 +64,35 @@ export default function RecommendedSlider() {
   }, []);
   return (
     <>
-      <div className='relative'>
-        <div className={styles.slideImg}>
-          <Image
-            width={250}
-            height={250}
-            layout='fill'
-            src={recommended}
-            alt=''
-            className={styles.slideImg}
-          ></Image>
-        </div>
-      </div>
-      {/* {recommended.map((item) => {
-        if (item.attributes.recommended === true) {
-          return (
-            <div className={styles.sliderDiv} key={item.id}>
-              <div className={styles.slideImg}>
-                <Image
-                  layout='fill'
-                  className={styles.slideImg}
-                  src={item.attributes.card_image}
-                  alt=''
-                ></Image>
-              </div>
-              <div className='flex justify-between pl-2'>
-                <h2 className={styles.cardHeading}>{item.attributes.name}</h2>
-                <div className='flex items-center pr-6'>
-                  <Star color='#EAD200' size={20} fill='#EAD200'></Star>
-                  <p className='pl-2'>{item.attributes.rating}</p>
+      <Slider {...settings}>
+        {recommended.map((item) => {
+          if (item.attributes.recommended === true) {
+            return (
+              <div className={styles.sliderDiv} key={item.id}>
+                <div className={styles.slideImg}>
+                  <Image
+                    layout='fill'
+                    className={styles.slideImg}
+                    src={item.attributes.card_image}
+                    alt=''
+                  ></Image>
                 </div>
+                <div className='flex justify-between pl-2'>
+                  <h2 className={styles.cardHeading}>{item.attributes.name}</h2>
+                  <div className='flex items-center pr-6'>
+                    <Star color='#EAD200' size={20} fill='#EAD200'></Star>
+                    <p className='pl-2'>{item.attributes.rating}</p>
+                  </div>
+                </div>
+                <p className={styles.cardTextDiv}>
+                  ${item.attributes.price}
+                  <span className={styles.cardPrice}> /per night</span>{' '}
+                </p>
               </div>
-              <p className={styles.cardTextDiv}>
-                ${item.attributes.price}
-                <span className={styles.cardPrice}> /per night</span>{' '}
-              </p>
-            </div>
-          );
-        }
-      })} */}
+            );
+          }
+        })}
+      </Slider>
     </>
   );
 }
