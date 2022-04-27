@@ -42,11 +42,11 @@ export default function PopularSlider() {
     <>
       <Carousel
         responsive={responsive}
-        deviceType={responsive}
         autoPlay={false}
         shouldResetAutoplay={false}
         removeArrowOnDeviceType={['tablet', 'mobile']}
         containerClass='w-full'
+        ssr={true}
       >
         {popular.map((item) => {
           if (item.attributes.popular === true) {
