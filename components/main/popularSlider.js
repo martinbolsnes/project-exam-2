@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Star } from 'tabler-icons-react';
 import Image from 'next/image';
-import Slider from 'react-slick';
+import Slider from '@ant-design/react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -65,14 +65,14 @@ export default function PopularSlider() {
             return (
               <div className={styles.sliderDiv} key={item.id}>
                 <div className={styles.slideImg}>
-                  <img
-                    /* width={1000}
+                  <Image
+                    width={1000}
                     height={1000}
-                    layout='fill' */
+                    layout='fill'
                     className={styles.slideImg}
                     src={item.attributes.card_image}
                     alt=''
-                  ></img>
+                  ></Image>
                 </div>
                 <div className='flex justify-between pl-2'>
                   <h2 className={styles.cardHeading}>{item.attributes.name}</h2>

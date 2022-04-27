@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Star } from 'tabler-icons-react';
 import Image from 'next/image';
-import Slider from 'react-slick';
+import Slider from '@ant-design/react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
