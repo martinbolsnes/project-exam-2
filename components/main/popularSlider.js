@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { Star } from 'tabler-icons-react';
+import Image from 'next/image';
 
 import styles from '../../styles/Home.module.css';
 
@@ -48,10 +49,16 @@ export default function PopularSlider() {
           if (item.attributes.popular === true) {
             return (
               <div className={styles.sliderDiv} key={item.id}>
-                <img
-                  className={styles.slideImg}
-                  src={item.attributes.card_image}
-                ></img>
+                <div className={styles.slideImg}>
+                  <Image
+                    width={1000}
+                    height={1000}
+                    layout='fill'
+                    className={styles.slideImg}
+                    src={item.attributes.card_image}
+                    alt=''
+                  ></Image>
+                </div>
                 <div className='flex justify-between pl-2'>
                   <h2 className={styles.cardHeading}>{item.attributes.name}</h2>
                   <div className='flex items-center pr-6'>

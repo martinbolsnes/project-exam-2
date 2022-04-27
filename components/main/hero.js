@@ -6,6 +6,7 @@ import HostelIcon from '../icons/hostel';
 import OutdoorsIcon from '../icons/outdoors';
 import styles from '../../styles/Home.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
   const [heroImg, setHeroImg] = useState();
@@ -37,7 +38,18 @@ export default function Hero() {
         </div>
       </div>
       <div className='w-full lg:w-2/5 relative mr-0 lg:mr-20 mt-6 sm:mt-0 flex flex-col sm:flex-row items-center'>
-        <img className={styles.heroImg} src={heroImg}></img>
+        <div className={styles.heroImg}>
+          <Image
+            height={3840}
+            width={2880}
+            layout='fill'
+            className={styles.heroImg}
+            src={
+              'https://raw.githubusercontent.com/martinbolsnes/holidaze-backend/main/public/images/john-o-nolan-6f_ANCcbj3o-unsplash%20(1).jpg'
+            }
+            alt=''
+          ></Image>
+        </div>
         <div className={styles.heroEclipse}>
           <p className={styles.heroEclipseText}>
             500+ places to stay across the country
