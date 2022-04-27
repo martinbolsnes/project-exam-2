@@ -65,14 +65,14 @@ export default function PopularSlider() {
             return (
               <div className={styles.sliderDiv} key={item.id}>
                 <div className={styles.slideImg}>
-                  <Image
-                    width={1000}
+                  <img
+                    /* width={1000}
                     height={1000}
-                    layout='fill'
+                    layout='fill' */
                     className={styles.slideImg}
                     src={item.attributes.card_image}
                     alt=''
-                  ></Image>
+                  ></img>
                 </div>
                 <div className='flex justify-between pl-2'>
                   <h2 className={styles.cardHeading}>{item.attributes.name}</h2>
