@@ -5,11 +5,6 @@ import Image from 'next/image';
 import Slider from '@ant-design/react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-/* import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination'; */
 
 import styles from '../../styles/Home.module.css';
 
@@ -19,7 +14,6 @@ const settings = {
   slidesToShow: 3,
   slidesToScroll: 1,
   arrows: true,
-  initialSlide: 1,
   responsive: [
     {
       breakpoint: 1024,
@@ -34,7 +28,6 @@ const settings = {
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
-        initialSlide: 2,
         arrows: false,
       },
     },
@@ -63,38 +56,35 @@ export default function RecommendedSlider() {
     getRecommended();
   }, []);
   return (
-    <>
-      <Slider {...settings}>
-        {recommended.map((item) => {
-          if (item.attributes.recommended === true) {
-            return (
-              <div className={styles.sliderDiv} key={item.id}>
-                <div className={styles.slideImg}>
-                  <Image
-                    layout='fill'
-                    className={styles.slideImg}
-                    src={
-                      'https://raw.githubusercontent.com/martinbolsnes/holidaze-backend/main/public/images/john-o-nolan-6f_ANCcbj3o-unsplash%20(1).jpg'
-                    }
-                    alt=''
-                  ></Image>
-                </div>
-                <div className='flex justify-between pl-2'>
-                  <h2 className={styles.cardHeading}>{item.attributes.name}</h2>
-                  <div className='flex items-center pr-6'>
-                    <Star color='#EAD200' size={20} fill='#EAD200'></Star>
-                    <p className='pl-2'>{item.attributes.rating}</p>
-                  </div>
-                </div>
-                <p className={styles.cardTextDiv}>
-                  ${item.attributes.price}
-                  <span className={styles.cardPrice}> /per night</span>{' '}
-                </p>
+    <Slider {...settings}>
+      {recommended.map((item) => {
+        if (item.attributes.recommended === true) {
+          return (
+            <div className={styles.sliderDiv} key={item.id}>
+              <div className={styles.slideImg}>
+                <Image
+                  layout='fill'
+                  objectFit='cover'
+                  className={styles.slideImg}
+                  src={item.attributes.card_image}
+                  alt=''
+                ></Image>
               </div>
-            );
-          }
-        })}
-      </Slider>
-    </>
+              <div className='flex justify-between pl-2'>
+                <h2 className={styles.cardHeading}>{item.attributes.name}</h2>
+                <div className='flex items-center pr-6'>
+                  <Star color='#EAD200' size={20} fill='#EAD200'></Star>
+                  <p className='pl-2'>{item.attributes.rating}</p>
+                </div>
+              </div>
+              <p className={styles.cardTextDiv}>
+                ${item.attributes.price}
+                <span className={styles.cardPrice}> /per night</span>{' '}
+              </p>
+            </div>
+          );
+        }
+      })}
+    </Slider>
   );
 }

@@ -108,8 +108,8 @@
 }
 
 .slideImg {
-  width: 95%;
   height: 250px;
+  width: 95%;
   position: relative;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -119,6 +119,11 @@
 .slideImg:hover {
   opacity: 0.8;
   cursor: pointer;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: #2196f3 !important;
 }
 
 .footer {
