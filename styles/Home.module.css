@@ -161,6 +161,34 @@
   right: 9%;
 }
 
+.inputDiv {
+  width: 30%;
+}
+
+.searchInput {
+  height: 40px;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(7, 25, 44, 0.5);
+  background-color: transparent;
+}
+
+.searchInput::placeholder {
+  padding-left: 20px;
+}
+
+.filterBtnBg,
+.typeIconsBg {
+  background-color: #bbdefb;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 16px 40px rgba(109, 141, 173, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
 @media (max-width: 640px) {
   .heroImg {
     width: 250px;
