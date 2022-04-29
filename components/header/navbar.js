@@ -1,6 +1,7 @@
 import { Disclosure } from '@headlessui/react';
 import { Menu2, X, UserCircle } from 'tabler-icons-react';
 import Link from 'next/link';
+
 import Logo from './logo';
 import styles from '../../styles/Home.module.css';
 
