@@ -5,7 +5,7 @@ import TypesOutdoorsIcon from '../icons/typesIcons/outdoors';
 
 export default function Types() {
   return (
-    <div className='flex w-full justify-between'>
+    <div className='flex lg:w-1/4 md:w-1/3 w-4/5 justify-between'>
       <TypesHotelIcon />
       <TypesHouseIcon />
       <TypesHostelIcon />
