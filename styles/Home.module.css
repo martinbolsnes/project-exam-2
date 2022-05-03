@@ -162,7 +162,7 @@
 }
 
 .inputDiv {
-  width: 30%;
+  width: 50%;
 }
 
 .searchInput {
@@ -171,10 +171,11 @@
   border-radius: 10px;
   border: 1px solid rgba(7, 25, 44, 0.5);
   background-color: transparent;
+  padding-left: 20px;
 }
 
-.searchInput::placeholder {
-  padding-left: 20px;
+.searchInput:focus {
+  outline: #07192c;
 }
 
 .filterBtnBg,
@@ -204,6 +205,10 @@
 
   .heroEclipseText {
     font-size: 12px;
+  }
+
+  .inputDiv {
+    width: 70%;
   }
 }
 
