@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import axios from 'axios';
+import Image from 'next/image';
 import Navbar from '../../components/header/navbar';
+
+import styles from '../../styles/Home.module.css';
 
 export async function getStaticPaths() {
   const res = await axios.get('http://localhost:1337/api/accommodations');
@@ -33,7 +36,16 @@ const Accommodations = ({ accommodations }) => {
       <header className='sticky top-0 z-50'>
         <Navbar />
       </header>
-      <main className='mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'>
+      <main className='mt-4 mx-auto max-w-7xl px-4 sm:mt-2 sm:px-6 md:mt-5 lg:mt-10 lg:px-8 xl:mt-10'>
+        <div className={styles.accommodationsImg}>
+          <Image
+            className={styles.accommodationsImg}
+            src={accommodations.attributes.card_image}
+            layout='fill'
+            objectFit='cover'
+            alt={accommodations.attributes.name}
+          ></Image>
+        </div>
         <h1>{accommodations.attributes.name}</h1>
       </main>
     </div>

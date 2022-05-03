@@ -190,6 +190,14 @@
   padding: 5px;
 }
 
+.accommodationsImg {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
 @media (max-width: 640px) {
   .heroImg {
     width: 250px;
