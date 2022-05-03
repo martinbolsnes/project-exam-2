@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Star } from 'tabler-icons-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Slider from '@ant-design/react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -61,28 +62,34 @@ export default function RecommendedSlider() {
       {recommended.map((item) => {
         if (item.attributes.recommended === true) {
           return (
-            <div className={styles.sliderDiv} key={item.id}>
-              <div className={styles.slideImg}>
-                <Image
-                  layout='fill'
-                  objectFit='cover'
-                  className={styles.slideImg}
-                  src={item.attributes.card_image}
-                  alt=''
-                ></Image>
-              </div>
-              <div className='flex justify-between pl-2'>
-                <h2 className={styles.cardHeading}>{item.attributes.name}</h2>
-                <div className='flex items-center pr-6'>
-                  <Star color='#EAD200' size={20} fill='#EAD200'></Star>
-                  <p className='pl-2'>{item.attributes.rating}</p>
+            <Link href={`accommodations/${item.id}`} passHref key={item.id}>
+              <a>
+                <div className={styles.sliderDiv}>
+                  <div className={styles.slideImg}>
+                    <Image
+                      layout='fill'
+                      objectFit='cover'
+                      className={styles.slideImg}
+                      src={item.attributes.card_image}
+                      alt=''
+                    ></Image>
+                  </div>
+                  <div className='flex justify-between pl-2'>
+                    <h2 className={styles.cardHeading}>
+                      {item.attributes.name}
+                    </h2>
+                    <div className='flex items-center pr-6'>
+                      <Star color='#EAD200' size={20} fill='#EAD200'></Star>
+                      <p className='pl-2'>{item.attributes.rating}</p>
+                    </div>
+                  </div>
+                  <p className={styles.cardTextDiv}>
+                    ${item.attributes.price}
+                    <span className={styles.cardPrice}> /per night</span>{' '}
+                  </p>
                 </div>
-              </div>
-              <p className={styles.cardTextDiv}>
-                ${item.attributes.price}
-                <span className={styles.cardPrice}> /per night</span>{' '}
-              </p>
-            </div>
+              </a>
+            </Link>
           );
         }
       })}
