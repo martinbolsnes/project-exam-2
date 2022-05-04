@@ -2,11 +2,16 @@ import Head from 'next/head';
 import axios from 'axios';
 import Image from 'next/image';
 import Navbar from '../../components/header/navbar';
+import FooterSection from '../../components/footer/footer';
+import TypeLabel from '../../components/labels/typeLabel';
+import BookButton from '../../components/buttons/bookButton';
 
 import styles from '../../styles/Home.module.css';
 
 export async function getStaticPaths() {
-  const res = await axios.get('http://localhost:1337/api/accommodations');
+  const res = await axios.get(
+    'http://localhost:1337/api/accommodations?populate=*'
+  );
   const result = res.data;
   const id = result?.data;
 
@@ -19,13 +24,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await axios.get(
-    `http://localhost:1337/api/accommodations/${params.id}`
+    `http://localhost:1337/api/accommodations/${params.id}?populate=*`
   );
   const accommodations = res?.data.data;
   return { props: { accommodations } };
 }
 
-const Accommodations = ({ accommodations }) => {
+const Accommodations = ({ accommodations, labelType }) => {
   return (
     <div className='bg-bgColor'>
       <Head>
@@ -46,8 +51,33 @@ const Accommodations = ({ accommodations }) => {
             alt={accommodations.attributes.name}
           ></Image>
         </div>
-        <h1>{accommodations.attributes.name}</h1>
+        <div className='mt-4'>
+          <TypeLabel
+            type={accommodations.attributes.categories.data[0].attributes.name}
+          ></TypeLabel>
+        </div>
+        <div className='mt-4 flex justify-between items-center'>
+          <h1 className='text-3xl font-serif2 font-bold'>
+            {accommodations.attributes.name}
+          </h1>
+          <div className='flex items-center'>
+            <p className='mr-4 text-blue-5 text-lg font-bold'>
+              ${accommodations.attributes.price}
+              <span className='text-black opacity-50 font-medium'>
+                {' '}
+                /per night
+              </span>{' '}
+            </p>
+            <BookButton />
+          </div>
+        </div>
+        <div></div>
+        <div></div>
+        <div></div>
       </main>
+      <footer className='bg-footerColor'>
+        <FooterSection />
+      </footer>
     </div>
   );
 };
