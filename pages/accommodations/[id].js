@@ -60,12 +60,12 @@ const Accommodations = ({ accommodations, labelType }) => {
             type={accommodations.attributes.categories.data[0].attributes.name}
           ></TypeLabel>
         </div>
-        <div className='mt-4 flex justify-between items-center'>
+        <div className='mt-4 flex flex-col md:flex-row md:justify-between md:items-center'>
           <h1 className='text-3xl font-serif2 font-bold'>
             {accommodations.attributes.name}
           </h1>
-          <div className='flex items-center'>
-            <p className='mr-4 text-blue-5 text-lg font-bold'>
+          <div className='flex items-center justify-between mt-4 md:mt-0'>
+            <p className='mr-4 text-blue-5 text-lg font-bold sm:mr-6'>
               ${accommodations.attributes.price}
               <span className='text-black opacity-50 font-medium'>
                 {' '}
@@ -78,7 +78,7 @@ const Accommodations = ({ accommodations, labelType }) => {
         <div>
           <LocationLabel location={accommodations.attributes.location} />
         </div>
-        <div className='mt-4 w-1/2'>
+        <div className='mt-4 md:w-2/3'>
           <p className='font-serif'>
             {showMore
               ? accommodations.attributes.description

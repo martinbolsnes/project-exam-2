@@ -209,35 +209,6 @@
   justify-content: center;
 }
 
-@media (max-width: 640px) {
-  .heroImg {
-    width: 250px;
-    height: 250px;
-  }
-
-  .heroEclipse {
-    width: 120px;
-    height: 120px;
-    top: 60%;
-    left: 10%;
-  }
-
-  .heroEclipseText {
-    font-size: 12px;
-  }
-
-  .inputDiv {
-    width: 70%;
-  }
-}
-
-@media (max-width: 820px) {
-  .heroImg {
-    width: 300px;
-    height: 300px;
-  }
-}
-
 @media (max-width: 821px) {
   .outdoorsDiv {
     position: absolute;
@@ -261,5 +232,53 @@
     position: absolute;
     top: 0%;
     right: 18%;
+  }
+}
+
+@media (max-width: 820px) {
+  .heroImg {
+    width: 300px;
+    height: 300px;
+  }
+
+  .accommodationsImg {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .accommodationsImg {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .heroImg {
+    width: 250px;
+    height: 250px;
+  }
+
+  .heroEclipse {
+    width: 120px;
+    height: 120px;
+    top: 60%;
+    left: 10%;
+  }
+
+  .heroEclipseText {
+    font-size: 12px;
+  }
+
+  .inputDiv {
+    width: 70%;
+  }
+}
+
+@media (max-width: 414px) {
+  .accommodationsImg {
+    width: 100%;
+    height: 250px;
   }
 }
