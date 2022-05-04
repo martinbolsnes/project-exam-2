@@ -198,6 +198,17 @@
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+.typeLabel {
+  width: 80px;
+  height: 25px;
+  border-radius: 10px;
+  background-color: #bbdefb;
+  color: #1976d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (max-width: 640px) {
   .heroImg {
     width: 250px;
