@@ -1,10 +1,13 @@
 import Head from 'next/head';
+import { useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
 import TypeLabel from '../../components/labels/typeLabel';
 import BookButton from '../../components/buttons/bookButton';
+import LocationLabel from '../../components/labels/locationLabel';
+import Reviews from '../../components/reviews/reviews';
 
 import styles from '../../styles/Home.module.css';
 
@@ -31,6 +34,7 @@ export async function getStaticProps({ params }) {
 }
 
 const Accommodations = ({ accommodations, labelType }) => {
+  const [showMore, setShowMore] = useState();
   return (
     <div className='bg-bgColor'>
       <Head>
@@ -71,9 +75,25 @@ const Accommodations = ({ accommodations, labelType }) => {
             <BookButton />
           </div>
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div>
+          <LocationLabel location={accommodations.attributes.location} />
+        </div>
+        <div className='mt-4 w-1/2'>
+          <p className='font-serif'>
+            {showMore
+              ? accommodations.attributes.description
+              : `${accommodations.attributes.description.substring(0, 390)}`}
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className='text-blue-5'
+            >
+              {showMore ? 'Show less' : '... Show more'}
+            </button>
+          </p>
+        </div>
+        <div className='mt-4 mb-10'>
+          <Reviews />
+        </div>
       </main>
       <footer className='bg-footerColor'>
         <FooterSection />
