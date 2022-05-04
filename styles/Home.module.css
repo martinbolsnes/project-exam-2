@@ -199,8 +199,10 @@
 }
 
 .typeLabel {
-  width: 80px;
+  width: 100px;
   height: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
   border-radius: 10px;
   background-color: #bbdefb;
   color: #1976d2;
