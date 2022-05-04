@@ -12,7 +12,9 @@ export default function Hero() {
   const [heroImg, setHeroImg] = useState();
   useEffect(() => {
     const getHeroImg = async () => {
-      const result = await axios.get('http://localhost:1337/api/hero-banner');
+      const result = await axios.get(
+        'https://holidaze-backend-1234.herokuapp.com/api/hero-banner'
+      );
       const res = result.data.data.attributes.image_url;
       setHeroImg(res);
     };

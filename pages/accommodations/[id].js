@@ -14,7 +14,7 @@ import styles from '../../styles/Home.module.css';
 
 export async function getStaticPaths() {
   const res = await axios.get(
-    'http://localhost:1337/api/accommodations?populate=*'
+    'https://holidaze-backend-1234.herokuapp.com/api/accommodations?populate=*'
   );
   const result = res.data;
   const id = result?.data;
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await axios.get(
-    `http://localhost:1337/api/accommodations/${params.id}?populate=*`
+    `https://holidaze-backend-1234.herokuapp.com/api/accommodations/${params.id}?populate=*`
   );
   const accommodations = res?.data.data;
   return { props: { accommodations } };
