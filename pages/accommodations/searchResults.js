@@ -12,7 +12,7 @@ export default function SearchResults() {
   useEffect(() => {
     const getSearchResults = async () => {
       const result = await axios.get(
-        'http://localhost:1337/api/accommodations'
+        'http://localhost:1337/api/accommodations?populate=*'
       );
       const res = result?.data.data;
       console.log(res);
