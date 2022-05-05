@@ -42,8 +42,7 @@ export default function Hero() {
       <div className='w-full lg:w-2/5 relative mr-0 lg:mr-20 mt-6 sm:mt-0 flex flex-col sm:flex-row items-center'>
         <div className={styles.heroImg}>
           <Image
-            height={3840}
-            width={2880}
+            priority
             layout='fill'
             className={styles.heroImg}
             src={
