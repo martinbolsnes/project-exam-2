@@ -9,6 +9,7 @@ import BookButton from '../../components/buttons/bookButton';
 import LocationLabel from '../../components/labels/locationLabel';
 import Reviews from '../../components/reviews/reviews';
 import DateSelect from '../../components/inputs/dateInput';
+import GuestInput from '../../components/inputs/guestInput';
 
 import styles from '../../styles/Home.module.css';
 
@@ -102,12 +103,10 @@ const Accommodations = ({ accommodations }) => {
         {showModal ? (
           <>
             <div className='mt-10 flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
-              <div className='relative w-full my-6 mx-auto max-w-3xl'>
-                {/*content*/}
+              <div className='relative my-6 mx-auto lg:w-full md: max-w-3xl w-11/12'>
                 <div className='p-5 border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
-                  {/*header*/}
                   <div className='flex items-start justify-between p-5 border-b border-solid border-black border-opacity-50 rounded-t'>
-                    <h3 className='text-3xl font-semibold font-serif2'>
+                    <h3 className='text-lg md:text-2xl lg:text-3xl font-semibold font-serif2'>
                       Your trip
                     </h3>
                     <button
@@ -119,12 +118,15 @@ const Accommodations = ({ accommodations }) => {
                       </span>
                     </button>
                   </div>
-                  {/*body*/}
-                  <div className='relative p-6 flex justify-between'>
-                    <DateSelect name='Check-in' />
-                    <DateSelect name='Check-out' />
+                  <div className='relative flex flex-col lg:pl-6 lg:pr-6'>
+                    <div className='flex pt-4 lg:pt-6 justify-between gap-2'>
+                      <DateSelect name='Check-in' />
+                      <DateSelect name='Check-out' />
+                    </div>
+                    <div className='flex lg:pt-6 lg:pb-6 pt-4 pb-4'>
+                      <GuestInput />
+                    </div>
                   </div>
-                  {/*footer*/}
                   <div className='flex items-center justify-end p-6 border-t border-solid border-black border-opacity-50 rounded-b'>
                     <button
                       className='background-transparent font-bold font-serif2 px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
