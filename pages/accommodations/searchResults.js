@@ -12,7 +12,7 @@ export default function SearchResults() {
   useEffect(() => {
     const getSearchResults = async () => {
       const result = await axios.get(
-        'https://holidaze-backend-1234.herokuapp.com/api/accommodations?populate=*'
+        'https://project-exam2-backend.herokuapp.com/api/accommodations?populate=*'
       );
       const res = result?.data.data;
       console.log(res);
@@ -35,7 +35,7 @@ export default function SearchResults() {
                   layout='fill'
                   objectFit='cover'
                   className={styles.slideImg}
-                  src={accommodations.attributes.card_image}
+                  src={accommodations.attributes.image}
                   alt={accommodations.name}
                 ></Image>
               </div>

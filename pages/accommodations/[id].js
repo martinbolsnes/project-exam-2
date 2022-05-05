@@ -14,7 +14,7 @@ import styles from '../../styles/Home.module.css';
 
 export async function getStaticPaths() {
   const res = await axios.get(
-    'https://holidaze-backend-1234.herokuapp.com/api/accommodations?populate=*'
+    'https://project-exam2-backend.herokuapp.com/api/accommodations?populate=*'
   );
   const result = res.data;
   const id = result?.data;
@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await axios.get(
-    `https://holidaze-backend-1234.herokuapp.com/api/accommodations/${params.id}?populate=*`
+    `https://project-exam2-backend.herokuapp.com/api/accommodations/${params.id}?populate=*`
   );
   const accommodations = res?.data.data;
   return { props: { accommodations } };
@@ -52,7 +52,7 @@ const Accommodations = ({ accommodations }) => {
         <div className={styles.accommodationsImg}>
           <Image
             className={styles.accommodationsImg}
-            src={accommodations.attributes.card_image}
+            src={accommodations.attributes.image}
             layout='fill'
             objectFit='cover'
             alt={accommodations.attributes.name}

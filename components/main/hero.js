@@ -13,9 +13,9 @@ export default function Hero() {
   useEffect(() => {
     const getHeroImg = async () => {
       const result = await axios.get(
-        'https://holidaze-backend-1234.herokuapp.com/api/hero-banner'
+        'https://project-exam2-backend.herokuapp.com/api/hero-banner'
       );
-      const res = result.data.data.attributes.image_url;
+      const res = result.data.data.attributes.image;
       setHeroImg(res);
     };
     getHeroImg();

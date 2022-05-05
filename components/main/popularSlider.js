@@ -50,7 +50,7 @@ export default function PopularSlider() {
   useEffect(() => {
     const getPopular = async () => {
       const result = await axios.get(
-        'https://holidaze-backend-1234.herokuapp.com/api/accommodations?populate=*'
+        'https://project-exam2-backend.herokuapp.com/api/accommodations?populate=*'
       );
       const res = result?.data.data;
       console.log(res);
@@ -72,7 +72,7 @@ export default function PopularSlider() {
                       <Image
                         layout='fill'
                         className={styles.slideImg}
-                        src={item.attributes.card_image}
+                        src={item.attributes.image}
                         alt=''
                       ></Image>
                     </div>
