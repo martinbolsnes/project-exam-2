@@ -60,7 +60,7 @@ const Accommodations = ({ accommodations }) => {
         </div>
         <div className='mt-4'>
           <TypeLabel
-            type={accommodations.attributes.categories.data[0].attributes.name}
+            type={accommodations.attributes.categories.data[0].attributes.type}
           ></TypeLabel>
         </div>
         <div className='mt-4 flex flex-col md:flex-row md:justify-between md:items-center'>
