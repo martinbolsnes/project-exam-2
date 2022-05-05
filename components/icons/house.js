@@ -6,7 +6,7 @@ const HouseIcon = () => {
   return (
     <div className={styles.houseDiv}>
       <Tooltip
-        label='House'
+        label='Apartment'
         position='right'
         withArrow
         transitionDuration={220}
