@@ -1,6 +1,15 @@
 import Head from 'next/head';
+import {
+  BrandInstagram,
+  BrandMessenger,
+  BrandTwitter,
+  Mail,
+} from 'tabler-icons-react';
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
+import FormInput from '../../components/inputs/formInput';
+import MessageInput from '../../components/inputs/messageInput';
+import BookButton from '../../components/buttons/bookButton';
 
 import styles from '../../styles/Home.module.css';
 
@@ -15,9 +24,47 @@ export default function Contact() {
       <header className='sticky top-0 z-50'>
         <Navbar />
       </header>
-      <main className='mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'>
+      <main className='mt-6 mb-20 mx-auto max-w-7xl px-4 sm:mt-8 sm:px-6 md:mt-12 lg:mt-16 lg:px-8 xl:mt-22'>
         <div>
-          <h1 className='font-serif2 font-bold text-3xl'>Contact</h1>
+          <h1 className='font-serif2 font-bold text-3xl lg:mb-10 mb-6'>
+            Contact
+          </h1>
+        </div>
+        <div className='flex flex-col md:flex-row w-full'>
+          <div className='flex flex-col md:w-1/2 w-full'>
+            <div>
+              <FormInput type='Your name' />
+              <FormInput type='Subject' />
+              <FormInput type='Email' />
+              <MessageInput type='Message' />
+            </div>
+            <div className='w-1/2 self-center mt-4'>
+              <BookButton name='Send' />
+            </div>
+          </div>
+          <div className='flex flex-col md:w-1/2 w-full items-center mt-10 md:mt-6 gap-6'>
+            <div>
+              <p className='font-serif opacity-60 text-center'>
+                or contact us at our social media channels
+              </p>
+            </div>
+            <div>
+              <div className='flex gap-4'>
+                <BrandInstagram size={40} strokeWidth={1} color='#2196f3' />
+                <BrandMessenger size={40} strokeWidth={1} color='#2196f3' />
+                <BrandTwitter size={40} strokeWidth={1} color='#2196f3' />
+              </div>
+            </div>
+            <div className='w-2/4'>
+              <p className='font-serif opacity-60 text-center'>
+                If you have any questions regarding your booking please send ut
+                an email with your booking number
+              </p>
+            </div>
+            <div>
+              <Mail size={40} strokeWidth={1} color='#2196f3' />
+            </div>
+          </div>
         </div>
       </main>
       <footer className='bg-footerColor'>
