@@ -1,6 +1,6 @@
 export default function GuestInput() {
   return (
-    <div className='w-full flex flex-col pl-4 py-2 border border-solid border-black rounded lg:rounded-md border-opacity-50'>
+    <div className='w-full flex flex-col pl-4 py-2 border border-solid border-black rounded-xl border-opacity-50'>
       <label htmlFor='guestInput' className='font-serif2 font-bold'>
         Guests
       </label>
