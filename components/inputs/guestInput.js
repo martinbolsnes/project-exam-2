@@ -4,7 +4,7 @@ export default function GuestInput() {
       <label htmlFor='guestInput' className='font-serif2 font-bold'>
         Guests
       </label>
-      <select name='guests' id='guestInput' className='w-1/5'>
+      <select name='guests' id='guestInput' className='lg:w-1/5 w-1/3'>
         <option value='1' className='font-serif'>
           1 guest
         </option>
