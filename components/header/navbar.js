@@ -1,6 +1,7 @@
 import { Disclosure } from '@headlessui/react';
 import { Menu2, X, UserCircle } from 'tabler-icons-react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import Logo from './logo';
 import styles from '../../styles/Home.module.css';
@@ -16,6 +17,7 @@ function classNames(...classes) {
 }
 
 export default function Navbar() {
+  const router = useRouter();
   return (
     <Disclosure as='nav' className='bg-bgColor'>
       {({ open }) => (
@@ -48,13 +50,9 @@ export default function Navbar() {
                         <a
                           key={item.name}
                           href={item.href}
-                          className={classNames(
-                            item.current
-                              ? 'bg-blue-2 text-black'
-                              : 'text-black hover:bg-linkHoverColor hover:text-black',
-                            'px-3 py-2 rounded-md text-sm font-bold font-serif2'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
+                          className={`px-3 py-2 rounded-md text-sm font-bold font-serif2 text-black hover:bg-linkHoverColor ${
+                            router.pathname === item.href ? 'bg-blue-2' : ''
+                          }`}
                         >
                           {item.name}
                         </a>
@@ -81,13 +79,9 @@ export default function Navbar() {
                     key={item.name}
                     as='a'
                     href={item.href}
-                    className={classNames(
-                      item.current
-                        ? 'bg-blue-2 text-black'
-                        : 'text-black hover:bg-linkHoverColor hover:text-black',
-                      'block px-3 py-2 rounded-md text-base font-bold font-serif2'
-                    )}
-                    aria-current={item.current ? 'page' : undefined}
+                    className={`block px-3 py-2 rounded-md text-sm font-bold font-serif2 text-black hover:bg-linkHoverColor ${
+                      router.pathname === item.href ? 'bg-blue-2' : ''
+                    }`}
                   >
                     {item.name}
                   </Disclosure.Button>
