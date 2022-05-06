@@ -2,14 +2,18 @@ import Head from 'next/head';
 import { useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
+import { X } from 'tabler-icons-react';
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
 import TypeLabel from '../../components/labels/typeLabel';
 import BookButton from '../../components/buttons/bookButton';
+import ModalBookButton from '../../components/buttons/modalBookButton';
 import LocationLabel from '../../components/labels/locationLabel';
 import Reviews from '../../components/reviews/reviews';
 import DateSelect from '../../components/inputs/dateInput';
 import GuestInput from '../../components/inputs/guestInput';
+import FormInput from '../../components/inputs/formInput';
+import MessageInput from '../../components/inputs/messageInput';
 
 import styles from '../../styles/Home.module.css';
 
@@ -105,16 +109,16 @@ const Accommodations = ({ accommodations }) => {
             <div className='mt-10 flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none'>
               <div className='relative my-6 mx-auto lg:w-full md: max-w-3xl w-11/12'>
                 <div className='p-5 border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none'>
-                  <div className='flex items-start justify-between p-5 border-b border-solid border-black border-opacity-50 rounded-t'>
+                  <div className='flex items-start justify-between p-5 rounded-t'>
                     <h3 className='text-lg md:text-2xl lg:text-3xl font-semibold font-serif2'>
                       Your trip
                     </h3>
                     <button
-                      className='p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none'
+                      className='p-1 ml-auto border-0 float-right text-3xl leading-none font-semibold outline-none focus:outline-none'
                       onClick={() => setShowModal(false)}
                     >
-                      <span className='bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none'>
-                        ×
+                      <span className=' h-6 w-6 text-2xl block outline-none focus:outline-none'>
+                        <X color='#000000' />
                       </span>
                     </button>
                   </div>
@@ -127,7 +131,36 @@ const Accommodations = ({ accommodations }) => {
                       <GuestInput />
                     </div>
                   </div>
-                  <div className='flex items-center justify-end p-6 border-t border-solid border-black border-opacity-50 rounded-b'>
+                  <div className='flex flex-col pb-4 pl-6 pr-6 lg:pb-8 lg:pr-8 lg:pl-8'>
+                    <div className='flex justify-between pt-4 lg:pt-8 font-serif border-t border-solid border-black border-opacity-40'>
+                      <div>
+                        <h3>
+                          ${accommodations.attributes.price} x number of nights
+                        </h3>
+                      </div>
+                      <div>$Sum</div>
+                    </div>
+                    <div className='flex justify-between pt-2 lg:pt-4 font-serif border-t border-solid border-black border-opacity-40'>
+                      <div>
+                        <h3>x number of guests</h3>
+                      </div>
+                      <div>$Sum</div>
+                    </div>
+                    <div className='flex justify-between border-t border-b border-solid border-black border-opacity-40 pt-4'>
+                      <h3 className='text-blue-5 font-bold font-serif'>
+                        Total
+                      </h3>
+                      <h3 className='text-blue-5 font-bold font-serif'>
+                        $Total amount
+                      </h3>
+                    </div>
+                    <div className='pt-4 flex flex-col'>
+                      <FormInput type='Name' />
+                      <FormInput type='Email' />
+                      <MessageInput type='Message' />
+                    </div>
+                  </div>
+                  <div className='flex items-center justify-end p-6 rounded-b'>
                     <button
                       className='background-transparent font-bold font-serif2 px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
                       type='button'
@@ -135,9 +168,9 @@ const Accommodations = ({ accommodations }) => {
                     >
                       Close
                     </button>
-                    <BookButton onClick={() => setShowModal(false)}>
+                    <ModalBookButton onClick={() => setShowModal(false)}>
                       Book
-                    </BookButton>
+                    </ModalBookButton>
                   </div>
                 </div>
               </div>
