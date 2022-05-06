@@ -4,7 +4,7 @@ export default function FormInput(props) {
       <input
         type='search'
         placeholder={props.type}
-        className='w-full border border-solid border-black border-opacity-50 h-12 rounded-md lg:rounded-lg pl-4'
+        className='w-full border border-solid border-black border-opacity-50 h-12 rounded lg:rounded-md pl-4'
       ></input>
     </div>
   );
