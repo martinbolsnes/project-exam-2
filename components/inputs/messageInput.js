@@ -4,7 +4,7 @@ export default function MessageInput(props) {
       <textarea
         type='search'
         placeholder={props.type}
-        className='w-full border border-solid border-black border-opacity-50 h-20 rounded-lg pl-4'
+        className='w-full font-serif border border-solid border-black border-opacity-50 h-20 rounded-lg pl-4'
       ></textarea>
     </div>
   );
