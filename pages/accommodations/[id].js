@@ -83,7 +83,7 @@ const Accommodations = ({ accommodations }) => {
               </span>{' '}
             </p>
             <div onClick={() => setShowModal(true)}>
-              <BookButton />
+              <BookButton name='Book now' />
             </div>
           </div>
         </div>
