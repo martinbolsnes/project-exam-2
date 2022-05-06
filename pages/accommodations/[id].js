@@ -61,6 +61,7 @@ const Accommodations = ({ accommodations }) => {
             src={accommodations.attributes.image}
             layout='fill'
             objectFit='cover'
+            priority
             alt={accommodations.attributes.name}
           ></Image>
         </div>
