@@ -121,11 +121,6 @@
   cursor: pointer;
 }
 
-.slick-prev:before,
-.slick-next:before {
-  color: #2196f3 !important;
-}
-
 .footer {
   padding-top: 64px;
   padding-left: auto;
