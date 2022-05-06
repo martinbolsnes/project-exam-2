@@ -1,6 +1,8 @@
 import Head from 'next/head';
-import Navbar from '../components/header/navbar';
-import FooterSection from '../components/footer/footer';
+import Navbar from '../../components/header/navbar';
+import FooterSection from '../../components/footer/footer';
+
+import styles from '../../styles/Home.module.css';
 
 export default function Contact() {
   return (
@@ -13,7 +15,11 @@ export default function Contact() {
       <header className='sticky top-0 z-50'>
         <Navbar />
       </header>
-      <main className='mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'></main>
+      <main className='mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'>
+        <div>
+          <h1 className='font-serif2 font-bold text-3xl'>Contact</h1>
+        </div>
+      </main>
       <footer className='bg-footerColor'>
         <FooterSection />
       </footer>
