@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import { X } from 'tabler-icons-react';
+
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
 import TypeLabel from '../../components/labels/typeLabel';
