@@ -24,11 +24,9 @@ export default function Contact() {
       <header className='sticky top-0 z-50'>
         <Navbar />
       </header>
-      <main className='mt-6 mb-20 mx-auto max-w-7xl px-4 sm:mt-8 sm:px-6 md:mt-12 lg:mt-16 lg:px-8 xl:mt-22'>
+      <main className='h-screen mt-6 mx-auto max-w-7xl px-4 sm:mt-8 sm:px-6 md:mt-12 lg:mt-16 lg:px-8 xl:mt-22'>
         <div>
-          <h1 className='font-serif2 font-bold text-3xl lg:mb-10 mb-6'>
-            Contact
-          </h1>
+          <h1 className='font-serif2 font-bold text-3xl mb-6'>Contact</h1>
         </div>
         <div className='flex flex-col md:flex-row w-full'>
           <div className='flex flex-col md:w-1/2 w-full'>

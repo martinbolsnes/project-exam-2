@@ -7,7 +7,7 @@ import Slider from '@ant-design/react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import styles from '../../styles/Home.module.css';
+import styles from './Main.module.css';
 
 const settings = {
   dots: true,

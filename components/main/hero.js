@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import HotelIcon from '../icons/hotel';
 import HouseIcon from '../icons/house';
 import HostelIcon from '../icons/hostel';
 import OutdoorsIcon from '../icons/outdoors';
-import styles from '../../styles/Home.module.css';
-import Link from 'next/link';
-import Image from 'next/image';
+import styles from './Main.module.css';
 
 export default function Hero() {
   const [heroImg, setHeroImg] = useState();
@@ -28,7 +28,7 @@ export default function Hero() {
         </h1>
         <div className='mt-5 sm:mt-8 sm:flex justify-start'>
           <Link href='/search' passHref>
-            <div className='rounded-md shadow'>
+            <div className='rounded-md shadow cursor-pointer'>
               <p
                 href='/search'
                 className='w-full flex items-center justify-center px-8 py-3 text-base font-medium font-serif2 rounded-md text-white bg-blue-5 hover:bg-darkBlue md:py-4 md:text-lg md:px-10'

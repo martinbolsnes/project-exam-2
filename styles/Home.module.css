@@ -26,101 +26,6 @@
   color: #07192c;
 }
 
-.heroImg {
-  border-radius: 50%;
-  width: 400px;
-  height: 400px;
-  border: solid 1px #07192c;
-  position: relative;
-}
-
-.heroEclipse {
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background-color: #07192c;
-  position: relative;
-  position: absolute;
-  top: 60%;
-  left: -5%;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 16px 40px rgba(109, 141, 173, 0.15);
-}
-
-.heroEclipseText {
-  color: white;
-  text-align: center;
-  width: 60%;
-  position: absolute;
-  top: 25%;
-  left: 20%;
-  font-family: 'Prompt', sans-serif;
-  font-weight: bold;
-  font-size: 18px;
-}
-
-.heroIconsDiv {
-  position: relative;
-}
-
-.heroIconsBg {
-  background-color: #bbdefb;
-  border-radius: 8px;
-  padding: 5px;
-  margin: 30px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
-    0px 16px 40px rgba(109, 141, 173, 0.15);
-}
-
-.sliderSection {
-  margin-top: 84px;
-  margin-bottom: 84px;
-}
-
-.sectionHeading,
-.cardHeading {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-}
-
-.sectionHeading {
-  font-size: 24px;
-  margin-bottom: 16px;
-  margin-top: 48px;
-}
-
-.cardHeading {
-  font-size: 18px;
-  margin-top: 5px;
-}
-
-.cardTextDiv {
-  font-family: 'Prompt', sans-serif;
-  padding-left: 0.5rem;
-  color: #2196f3;
-  font-weight: bold;
-}
-
-.cardPrice {
-  opacity: 50%;
-  color: black;
-  font-weight: normal;
-}
-
-.slideImg {
-  height: 250px;
-  width: 95%;
-  position: relative;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  opacity: 1;
-}
-
-.slideImg:hover {
-  opacity: 0.8;
-  cursor: pointer;
-}
-
 .footer {
   padding-top: 64px;
   padding-left: auto;
@@ -130,30 +35,6 @@
 .footerIcons {
   margin-right: 16px;
   opacity: 50%;
-}
-
-.outdoorsDiv {
-  position: absolute;
-  top: 68%;
-  right: 10%;
-}
-
-.hostelDiv {
-  position: absolute;
-  top: 48%;
-  right: 2%;
-}
-
-.houseDiv {
-  position: absolute;
-  top: 26%;
-  right: 2%;
-}
-
-.hotelDiv {
-  position: absolute;
-  top: 6%;
-  right: 9%;
 }
 
 .inputDiv {
@@ -206,38 +87,7 @@
   justify-content: center;
 }
 
-@media (max-width: 821px) {
-  .outdoorsDiv {
-    position: absolute;
-    top: 73%;
-    right: 23%;
-  }
-
-  .hostelDiv {
-    position: absolute;
-    top: 52%;
-    right: 8%;
-  }
-
-  .houseDiv {
-    position: absolute;
-    top: 26%;
-    right: 8%;
-  }
-
-  .hotelDiv {
-    position: absolute;
-    top: 0%;
-    right: 18%;
-  }
-}
-
 @media (max-width: 820px) {
-  .heroImg {
-    width: 300px;
-    height: 300px;
-  }
-
   .accommodationsImg {
     width: 100%;
     height: 350px;
@@ -252,22 +102,6 @@
 }
 
 @media (max-width: 640px) {
-  .heroImg {
-    width: 250px;
-    height: 250px;
-  }
-
-  .heroEclipse {
-    width: 120px;
-    height: 120px;
-    top: 60%;
-    left: 10%;
-  }
-
-  .heroEclipseText {
-    font-size: 12px;
-  }
-
   .inputDiv {
     width: 70%;
   }

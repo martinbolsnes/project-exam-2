@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import styles from '../components/main/Main.module.css';
 import Navbar from '../components/header/navbar';
 import Hero from '../components/main/hero';
 import RecommendedSlider from '../components/main/recommendedSlider';

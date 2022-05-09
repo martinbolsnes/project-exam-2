@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Star } from 'tabler-icons-react';
 
-import styles from '../../styles/Home.module.css';
+import styles from '../../components/main/Main.module.css';
 
 export default function SearchResults() {
   const [allResults, setAllResults] = useState([]);

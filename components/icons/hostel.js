@@ -1,6 +1,6 @@
 import { Tooltip } from '@mantine/core';
 import { Building } from 'tabler-icons-react';
-import styles from '../../styles/Home.module.css';
+import styles from '../main/Main.module.css';
 
 const HostelIcon = () => {
   return (
