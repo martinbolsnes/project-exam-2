@@ -5,6 +5,7 @@ const SubmenuLinks = [
   { name: 'Accommodations', href: '/admin' },
   { name: 'Messages', href: '/admin/messages' },
   { name: 'Enquieries', href: '/admin/enquieries' },
+  { name: 'Add new', href: '' },
 ];
 
 export default function Submenu() {
