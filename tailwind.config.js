@@ -27,6 +27,7 @@ module.exports = {
       footerColor: '#DFDFDF',
       black: '#000000',
       white: '#ffffff',
+      red: '#FA5252',
     },
 
     extend: {},

@@ -68,6 +68,55 @@
   right: 9%;
 }
 
+.sliderSection {
+  margin-top: 84px;
+  margin-bottom: 84px;
+}
+
+.sectionHeading,
+.cardHeading {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+.sectionHeading {
+  font-size: 24px;
+  margin-bottom: 16px;
+  margin-top: 48px;
+}
+
+.cardHeading {
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.cardTextDiv {
+  font-family: 'Prompt', sans-serif;
+  padding-left: 0.5rem;
+  color: #2196f3;
+  font-weight: bold;
+}
+
+.cardPrice {
+  opacity: 50%;
+  color: black;
+  font-weight: normal;
+}
+
+.slideImg {
+  height: 250px;
+  width: 95%;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  opacity: 1;
+}
+
+.slideImg:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 @media (max-width: 821px) {
   .outdoorsDiv {
     position: absolute;
@@ -117,53 +166,4 @@
   .heroEclipseText {
     font-size: 12px;
   }
-}
-
-.sliderSection {
-  margin-top: 84px;
-  margin-bottom: 84px;
-}
-
-.sectionHeading,
-.cardHeading {
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-}
-
-.sectionHeading {
-  font-size: 24px;
-  margin-bottom: 16px;
-  margin-top: 48px;
-}
-
-.cardHeading {
-  font-size: 18px;
-  margin-top: 5px;
-}
-
-.cardTextDiv {
-  font-family: 'Prompt', sans-serif;
-  padding-left: 0.5rem;
-  color: #2196f3;
-  font-weight: bold;
-}
-
-.cardPrice {
-  opacity: 50%;
-  color: black;
-  font-weight: normal;
-}
-
-.slideImg {
-  height: 250px;
-  width: 95%;
-  position: relative;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  opacity: 1;
-}
-
-.slideImg:hover {
-  opacity: 0.8;
-  cursor: pointer;
 }
