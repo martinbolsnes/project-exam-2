@@ -170,9 +170,11 @@ const Accommodations = ({ accommodations }) => {
                     >
                       Close
                     </button>
-                    <ModalBookButton onClick={() => setShowModal(false)}>
-                      Book
-                    </ModalBookButton>
+                    <button type='submit'>
+                      <ModalBookButton onClick={() => setShowModal(false)}>
+                        Book
+                      </ModalBookButton>
+                    </button>
                   </div>
                 </div>
               </div>

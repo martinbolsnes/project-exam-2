@@ -11,8 +11,6 @@ import FormInput from '../../components/inputs/formInput';
 import MessageInput from '../../components/inputs/messageInput';
 import BookButton from '../../components/buttons/bookButton';
 
-import styles from '../../styles/Home.module.css';
-
 export default function Contact() {
   return (
     <div className='bg-bgColor'>
