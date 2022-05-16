@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Edit, Trash } from 'tabler-icons-react';
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
 import Submenu from '../../components/admin/submenu';
