@@ -23,7 +23,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   const router = useRouter();
-  const { user, loading } = useFetchUser();
+  const { user } = useFetchUser();
   const logout = () => {
     unsetToken();
   };
@@ -67,53 +67,57 @@ export default function Navbar() {
                         </a>
                       </Link>
                     ))}
-
-                    <Link key={admin.name} href={admin.href}>
-                      <a
-                        key={admin.name}
-                        href={admin.href}
-                        className={`px-3 py-2 rounded-md text-sm font-bold font-serif2 text-black hover:bg-linkHoverColor ${
-                          router.pathname === admin.href ? 'bg-blue-2' : ''
-                        }`}
-                      >
-                        {admin.name}
-                      </a>
-                    </Link>
+                    {user && (
+                      <Link key={admin.name} href={admin.href}>
+                        <a
+                          key={admin.name}
+                          href={admin.href}
+                          className={`px-3 py-2 rounded-md text-sm font-bold font-serif2 text-black hover:bg-linkHoverColor ${
+                            router.pathname === admin.href ? 'bg-blue-2' : ''
+                          }`}
+                        >
+                          {admin.name}
+                        </a>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
               <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
-                {/* <Link key={navigation.name} href='' passHref>
-                  <Tooltip
-                    label='Sign out'
-                    position='bottom'
-                    withArrow
-                    transitionDuration={220}
-                    transition='fade'
-                  >
-                    <button onClick={logout}>
-                      <a>
-                        <UserCircle size={30} />
-                      </a>
-                    </button>
-                  </Tooltip>
-                </Link> */}
-
-                <Link key={navigation.name} href='/login' passHref>
-                  <Tooltip
-                    label='Sign in'
-                    position='bottom'
-                    withArrow
-                    transitionDuration={220}
-                    transition='fade'
-                  >
-                    <button onClick={logout}>
-                      <a>
-                        <UserCircle size={30} />
-                      </a>
-                    </button>
-                  </Tooltip>
-                </Link>
+                {user && (
+                  <Link key={navigation.name} href='' passHref>
+                    <Tooltip
+                      label='Sign out'
+                      position='bottom'
+                      withArrow
+                      transitionDuration={220}
+                      transition='fade'
+                    >
+                      <button onClick={logout}>
+                        <a>
+                          <UserCircle size={30} />
+                        </a>
+                      </button>
+                    </Tooltip>
+                  </Link>
+                )}
+                {!user && (
+                  <Link key={navigation.name} href='/login' passHref>
+                    <Tooltip
+                      label='Sign in'
+                      position='bottom'
+                      withArrow
+                      transitionDuration={220}
+                      transition='fade'
+                    >
+                      <button onClick={logout}>
+                        <a>
+                          <UserCircle size={30} />
+                        </a>
+                      </button>
+                    </Tooltip>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
