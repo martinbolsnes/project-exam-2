@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { getTokenFromLocalCookie } from '../../lib/auth';
 import {
   BrandInstagram,
@@ -21,6 +21,8 @@ export default function Contact() {
       message: '',
     },
   });
+
+  const form = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +51,10 @@ export default function Contact() {
       const result = responseData?.data;
       setData(result);
       console.log(result);
+      alert('Message has been sent');
+      form.current.reset();
     } catch (error) {
+      alert('Something went wrong');
       console.log(error);
     }
   };
@@ -73,6 +78,7 @@ export default function Contact() {
         </div>
         <div className='flex flex-col md:flex-row w-full'>
           <form
+            ref={form}
             className='flex flex-col md:w-1/2 w-full'
             onSubmit={handleSubmit}
           >

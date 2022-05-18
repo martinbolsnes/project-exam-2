@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { getTokenFromLocalCookie } from '../../lib/auth';
 import Navbar from '../../components/header/navbar';
@@ -32,36 +32,44 @@ export default function AddNew() {
     },
   });
 
+  const form = useRef(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const jwt = getTokenFromLocalCookie();
 
-    const responseData = await fetch(
-      `https://project-exam2-backend.herokuapp.com/api/accommodations`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          data: {
-            name: data.name,
-            location: data.location,
-            price: data.price,
-            description: data.description,
-            image: data.image,
-            recommended: data.recommended,
-            popular: data.popular,
-            rating: data.rating,
+    try {
+      const responseData = await fetch(
+        `https://project-exam2-backend.herokuapp.com/api/accommodations`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
           },
-        }),
-      }
-    );
-    const result = responseData?.data;
-    setData(result);
-    return result;
+          body: JSON.stringify({
+            data: {
+              name: data.name,
+              location: data.location,
+              price: data.price,
+              description: data.description,
+              image: data.image,
+              recommended: data.recommended,
+              popular: data.popular,
+              rating: data.rating,
+            },
+          }),
+        }
+      );
+      const result = responseData?.data;
+      setData(result);
+      alert('A new accommodation has been created');
+      form.current.reset();
+    } catch (error) {
+      alert('Something went wrong');
+      console.log(error);
+    }
   };
 
   const handleChange = (e) => {
@@ -84,7 +92,11 @@ export default function AddNew() {
         </h1>
         <Submenu />
         <section className='mt-4 mb-10 w-full'>
-          <form className='flex flex-col w-1/2' onSubmit={handleSubmit}>
+          <form
+            ref={form}
+            className='flex flex-col w-1/2'
+            onSubmit={handleSubmit}
+          >
             <label htmlFor='name'>Name</label>
             <input
               type='text'
