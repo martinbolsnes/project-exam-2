@@ -1,13 +1,47 @@
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Star } from 'tabler-icons-react';
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
-import SearchInput from '../../components/search/searchInput';
 import SearchButton from '../../components/buttons/searchButton';
 import FilterButton from '../../components/buttons/filterButton';
 import Types from '../../components/search/types';
-import SearchResults from '../accommodations/searchResults';
+
+import styles from '../../components/main/Main.module.css';
 
 export default function Search() {
+  const [allResults, setAllResults] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  useEffect(() => {
+    const getSearchResults = async () => {
+      const result = await axios.get(
+        'https://project-exam2-backend.herokuapp.com/api/accommodations?populate=*'
+      );
+      const res = result?.data.data;
+      console.log(res);
+      setAllResults(res);
+    };
+    getSearchResults();
+  }, []);
+
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue);
+    if (searchInput !== '') {
+      const filteredResults = allResults.filter((item) => {
+        return Object.values(item.attributes.name)
+          .join('')
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredResults);
+    } else {
+      setFilteredResults(allResults);
+    }
+  };
   return (
     <div className='bg-bgColor'>
       <Head>
@@ -21,7 +55,11 @@ export default function Search() {
       <main className='mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'>
         <div className='flex justify-between w-full'>
           <div className='flex w-4/5'>
-            <SearchInput />
+            <input
+              placeholder='Search...'
+              onChange={(e) => searchItems(e.target.value)}
+              className='rounded-md pl-4 border border-solid border-black border-opacity-50'
+            ></input>
             <SearchButton />
           </div>
           <div>
@@ -39,7 +77,95 @@ export default function Search() {
             Results
           </h2>
           <div className='w-full mt-5'>
-            <SearchResults />
+            <div className='grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3'>
+              {searchInput.length > 1
+                ? filteredResults.map((item) => {
+                    return (
+                      <Link
+                        href={`accommodations/${item.id}`}
+                        passHref
+                        key={item.id}
+                      >
+                        <a>
+                          <div>
+                            <div className={styles.slideImg}>
+                              <Image
+                                layout='fill'
+                                objectFit='cover'
+                                className={styles.slideImg}
+                                src={item.attributes.image}
+                                alt={item.name}
+                              ></Image>
+                            </div>
+                            <div className='flex justify-between pl-2'>
+                              <h2 className={styles.cardHeading}>
+                                {item.attributes.name}
+                              </h2>
+                              <div className='flex items-center pr-6'>
+                                <Star
+                                  color='#ead200'
+                                  size={20}
+                                  fill='#ead200'
+                                />
+                                <p className='pl-2'>{item.attributes.rating}</p>
+                              </div>
+                            </div>
+                            <p className={styles.cardTextDiv}>
+                              ${item.attributes.price}
+                              <span className={styles.cardPrice}>
+                                {' '}
+                                /per night
+                              </span>
+                            </p>
+                          </div>
+                        </a>
+                      </Link>
+                    );
+                  })
+                : allResults.map((item) => {
+                    return (
+                      <Link
+                        href={`accommodations/${item.id}`}
+                        passHref
+                        key={item.id}
+                      >
+                        <a>
+                          <div>
+                            <div className={styles.slideImg}>
+                              <Image
+                                layout='fill'
+                                objectFit='cover'
+                                className={styles.slideImg}
+                                src={item.attributes.image}
+                                alt={item.name}
+                              ></Image>
+                            </div>
+                            <div className='flex justify-between pl-2'>
+                              <h2 className={styles.cardHeading}>
+                                {item.attributes.name}
+                              </h2>
+                              <div className='flex items-center pr-6'>
+                                <Star
+                                  color='#ead200'
+                                  size={20}
+                                  fill='#ead200'
+                                />
+                                <p className='pl-2'>{item.attributes.rating}</p>
+                              </div>
+                            </div>
+                            <p className={styles.cardTextDiv}>
+                              ${item.attributes.price}
+                              <span className={styles.cardPrice}>
+                                {' '}
+                                /per night
+                              </span>
+                            </p>
+                          </div>
+                        </a>
+                      </Link>
+                    );
+                  })}
+            </div>
           </div>
         </section>
       </main>
@@ -48,4 +174,42 @@ export default function Search() {
       </footer>
     </div>
   );
+}
+{
+  /* {allResults.map((accommodations) => (
+                <Link
+                  href={`accommodations/${accommodations.id}`}
+                  passHref
+                  key={accommodations.id}
+                >
+                  <a>
+                    <div>
+                      <div className={styles.slideImg}>
+                        <Image
+                          layout='fill'
+                          objectFit='cover'
+                          className={styles.slideImg}
+                          src={accommodations.attributes.image}
+                          alt={accommodations.name}
+                        ></Image>
+                      </div>
+                      <div className='flex justify-between pl-2'>
+                        <h2 className={styles.cardHeading}>
+                          {accommodations.attributes.name}
+                        </h2>
+                        <div className='flex items-center pr-6'>
+                          <Star color='#ead200' size={20} fill='#ead200' />
+                          <p className='pl-2'>
+                            {accommodations.attributes.rating}
+                          </p>
+                        </div>
+                      </div>
+                      <p className={styles.cardTextDiv}>
+                        ${accommodations.attributes.price}
+                        <span className={styles.cardPrice}> /per night</span>
+                      </p>
+                    </div>
+                  </a>
+                </Link>
+              ))} */
 }
