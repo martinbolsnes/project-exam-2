@@ -91,59 +91,69 @@ export default function AddNew() {
               name='name'
               className={styles.searchInput}
               onChange={handleChange}
+              required
             ></input>
-            <label htmlFor='name'>Location</label>
+            <label htmlFor='location'>Location</label>
             <input
               type='text'
               name='location'
               className={styles.searchInput}
               onChange={handleChange}
+              required
             ></input>
-            <label htmlFor='name'>Price</label>
+            <label htmlFor='price'>Price</label>
             <input
               type='text'
               name='price'
               className={styles.searchInput}
               onChange={handleChange}
+              required
             ></input>
-            <label htmlFor='name'>Description</label>
+            <label htmlFor='description'>Description</label>
             <input
               type='text'
               name='description'
               className={styles.searchInput}
               onChange={handleChange}
+              required
             ></input>
-            <label htmlFor='name'>Image URL</label>
+            <label htmlFor='image'>Image URL</label>
             <input
               type='text'
               name='image'
               className={styles.searchInput}
               onChange={handleChange}
+              required
             ></input>
-            <label htmlFor='name'>Recommended</label>
+            <label htmlFor='recommended'>Recommended</label>
             <select
               name='recommended'
               className={styles.searchInput}
               onChange={handleChange}
+              required
             >
+              <option value='null'>Default</option>
               <option value='true'>True</option>
               <option value='false'>False</option>
             </select>
-            <label htmlFor='name'>Popular</label>
+            <label htmlFor='popular'>Popular</label>
             <select
               name='popular'
               className={styles.searchInput}
               onChange={handleChange}
+              required
             >
+              <option value='null'>Default</option>
               <option value='true'>True</option>
               <option value='false'>False</option>
             </select>
-            <label htmlFor='name'>Rating</label>
+            <label htmlFor='rating'>Rating</label>
             <input
               type='text'
               name='rating'
               className={styles.searchInput}
               onChange={handleChange}
+              required
             ></input>
             <br />
             <button type='submit' className='bg-blue-5 rounded py-2 text-white'>
