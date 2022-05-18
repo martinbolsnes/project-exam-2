@@ -68,7 +68,6 @@ export default function AddNew() {
       form.current.reset();
     } catch (error) {
       alert('Something went wrong');
-      console.log(error);
     }
   };
 
