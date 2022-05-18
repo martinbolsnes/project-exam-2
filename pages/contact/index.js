@@ -50,12 +50,10 @@ export default function Contact() {
       );
       const result = responseData?.data;
       setData(result);
-      console.log(result);
       alert('Message has been sent');
       form.current.reset();
     } catch (error) {
       alert('Something went wrong');
-      console.log(error);
     }
   };
 
