@@ -3,6 +3,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import { X } from 'tabler-icons-react';
+import { getTokenFromLocalCookie } from '../../lib/auth';
 
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
@@ -11,10 +12,6 @@ import BookButton from '../../components/buttons/bookButton';
 import ModalBookButton from '../../components/buttons/modalBookButton';
 import LocationLabel from '../../components/labels/locationLabel';
 import Reviews from '../../components/reviews/reviews';
-import DateSelect from '../../components/inputs/dateInput';
-import GuestInput from '../../components/inputs/guestInput';
-import FormInput from '../../components/inputs/formInput';
-import MessageInput from '../../components/inputs/messageInput';
 
 import styles from '../../styles/Home.module.css';
 
@@ -43,6 +40,51 @@ export async function getStaticProps({ params }) {
 const Accommodations = ({ accommodations }) => {
   const [showMore, setShowMore] = useState();
   const [showModal, setShowModal] = useState(false);
+
+  const [data, setData] = useState({
+    data: {
+      message: '',
+      email: '',
+      checkIn: '',
+      checkOut: '',
+      guests: '',
+      name: '',
+    },
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const jwt = getTokenFromLocalCookie();
+
+    const responseData = await fetch(
+      `https://project-exam2-backend.herokuapp.com/api/enquieries`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${jwt}`,
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          data: {
+            message: data.message,
+            email: data.email,
+            checkIn: data.checkIn,
+            checkOut: data.checkOut,
+            guests: data.guests,
+            name: data.name,
+          },
+        }),
+      }
+    );
+    const result = responseData?.data;
+    setData(result);
+    return result;
+  };
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className='bg-bgColor'>
@@ -124,58 +166,120 @@ const Accommodations = ({ accommodations }) => {
                       </span>
                     </button>
                   </div>
-                  <div className='relative flex flex-col lg:pl-6 lg:pr-6'>
-                    <div className='flex pt-4 lg:pt-6 justify-between gap-2'>
-                      <DateSelect name='Check-in' />
-                      <DateSelect name='Check-out' />
+                  <form onSubmit={handleSubmit}>
+                    <div className='relative flex flex-col lg:pl-6 lg:pr-6'>
+                      <div className='flex pt-4 lg:pt-6 justify-between gap-2'>
+                        <label
+                          htmlFor='trip-start'
+                          className='font-bold font-serif'
+                        >
+                          Check-In
+                        </label>
+                        <input
+                          type='date'
+                          id='trip-start'
+                          min='2022-05-22'
+                          max='2023-05-22'
+                          name='CheckIn'
+                          onChange={handleChange}
+                        />
+                        <label
+                          htmlFor='trip-end'
+                          className='font-bold font-serif'
+                        >
+                          Check-Out
+                        </label>
+                        <input
+                          type='date'
+                          id='trip-end'
+                          min='2022-05-23'
+                          max='2023-05-23'
+                          name='CheckOut'
+                          onChange={handleChange}
+                        />
+                      </div>
+                      <div className='flex flex-col lg:pt-6 lg:pb-6 pt-4 pb-4'>
+                        <label htmlFor='guest' className='font-bold font-serif'>
+                          Guests
+                        </label>
+                        <select
+                          onChange={handleChange}
+                          name='guests'
+                          className='w-1/4'
+                        >
+                          <option value='0'>0</option>
+                          <option value='1'>1</option>
+                          <option value='2'>2</option>
+                          <option value='3'>3</option>
+                          <option value='4'>4</option>
+                          <option value='5'>5</option>
+                          <option value='6'>6</option>
+                          <option value='7'>7</option>
+                        </select>
+                      </div>
                     </div>
-                    <div className='flex lg:pt-6 lg:pb-6 pt-4 pb-4'>
-                      <GuestInput />
-                    </div>
-                  </div>
-                  <div className='flex flex-col pb-4 pl-6 pr-6 lg:pb-8 lg:pr-8 lg:pl-8'>
-                    <div className='flex justify-between pt-4 lg:pt-8 font-serif border-t border-solid border-black border-opacity-40'>
-                      <div>
-                        <h3>
-                          ${accommodations.attributes.price} x number of nights
+                    <div className='flex flex-col pb-4 pl-6 pr-6 lg:pb-8 lg:pr-8 lg:pl-8'>
+                      <div className='flex justify-between pt-4 lg:pt-8 font-serif border-t border-solid border-black border-opacity-40'>
+                        <div>
+                          <h3>
+                            ${accommodations.attributes.price} x number of
+                            nights
+                          </h3>
+                        </div>
+                        <div>$Sum</div>
+                      </div>
+                      <div className='flex justify-between pt-2 lg:pt-4 font-serif border-t border-solid border-black border-opacity-40'>
+                        <div>
+                          <h3>x number of guests</h3>
+                        </div>
+                        <div>$Sum</div>
+                      </div>
+                      <div className='flex justify-between border-t border-b border-solid border-black border-opacity-40 pt-4'>
+                        <h3 className='text-blue-5 font-bold font-serif'>
+                          Total
+                        </h3>
+                        <h3 className='text-blue-5 font-bold font-serif'>
+                          $Total amount
                         </h3>
                       </div>
-                      <div>$Sum</div>
-                    </div>
-                    <div className='flex justify-between pt-2 lg:pt-4 font-serif border-t border-solid border-black border-opacity-40'>
-                      <div>
-                        <h3>x number of guests</h3>
+                      <div className='pt-4 flex flex-col gap-4'>
+                        <input
+                          type='text'
+                          onChange={handleChange}
+                          name='name'
+                          placeholder='Name'
+                          className={styles.searchInput}
+                        />
+                        <input
+                          type='text'
+                          onChange={handleChange}
+                          name='email'
+                          placeholder='Email'
+                          className={styles.searchInput}
+                        />
+                        <textarea
+                          onChange={handleChange}
+                          name='message'
+                          placeholder='Message'
+                          className={styles.textAreaInput}
+                        />
                       </div>
-                      <div>$Sum</div>
                     </div>
-                    <div className='flex justify-between border-t border-b border-solid border-black border-opacity-40 pt-4'>
-                      <h3 className='text-blue-5 font-bold font-serif'>
-                        Total
-                      </h3>
-                      <h3 className='text-blue-5 font-bold font-serif'>
-                        $Total amount
-                      </h3>
+                    <div className='flex items-center justify-end p-6 rounded-b'>
+                      <button
+                        className='background-transparent font-bold font-serif2 px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
+                        type='button'
+                        onClick={() => setShowModal(false)}
+                      >
+                        Close
+                      </button>
+                      <button type='submit'>
+                        <ModalBookButton onClick={() => setShowModal(false)}>
+                          Book
+                        </ModalBookButton>
+                      </button>
                     </div>
-                    <div className='pt-4 flex flex-col'>
-                      <FormInput type='Name' />
-                      <FormInput type='Email' />
-                      <MessageInput type='Message' />
-                    </div>
-                  </div>
-                  <div className='flex items-center justify-end p-6 rounded-b'>
-                    <button
-                      className='background-transparent font-bold font-serif2 px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150'
-                      type='button'
-                      onClick={() => setShowModal(false)}
-                    >
-                      Close
-                    </button>
-                    <button type='submit'>
-                      <ModalBookButton onClick={() => setShowModal(false)}>
-                        Book
-                      </ModalBookButton>
-                    </button>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>
