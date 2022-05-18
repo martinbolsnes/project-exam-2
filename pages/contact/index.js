@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import { useState } from 'react';
+import { getTokenFromLocalCookie } from '../../lib/auth';
 import {
   BrandInstagram,
   BrandMessenger,
@@ -7,11 +9,54 @@ import {
 } from 'tabler-icons-react';
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
-import FormInput from '../../components/inputs/formInput';
-import MessageInput from '../../components/inputs/messageInput';
 import BookButton from '../../components/buttons/bookButton';
+import styles from '../../styles/Home.module.css';
 
 export default function Contact() {
+  const [data, setData] = useState({
+    data: {
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    },
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const jwt = getTokenFromLocalCookie();
+
+    try {
+      const responseData = await fetch(
+        `https://project-exam2-backend.herokuapp.com/api/messages`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            data: {
+              name: data.name,
+              email: data.email,
+              subject: data.subject,
+              message: data.message,
+            },
+          }),
+        }
+      );
+      const result = responseData?.data;
+      setData(result);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
   return (
     <div className='bg-bgColor'>
       <Head>
@@ -27,17 +72,47 @@ export default function Contact() {
           <h1 className='font-serif2 font-bold text-3xl mb-6'>Contact</h1>
         </div>
         <div className='flex flex-col md:flex-row w-full'>
-          <div className='flex flex-col md:w-1/2 w-full'>
-            <div>
-              <FormInput type='Your name' />
-              <FormInput type='Subject' />
-              <FormInput type='Email' />
-              <MessageInput type='Message' />
+          <form
+            className='flex flex-col md:w-1/2 w-full'
+            onSubmit={handleSubmit}
+          >
+            <div className='flex flex-col gap-4'>
+              <input
+                type='text'
+                name='name'
+                className={styles.searchInput}
+                onChange={handleChange}
+                placeholder='Name'
+                required
+              ></input>
+              <input
+                type='text'
+                name='email'
+                className={styles.searchInput}
+                onChange={handleChange}
+                placeholder='Email'
+                required
+              ></input>
+              <input
+                type='text'
+                name='subject'
+                className={styles.searchInput}
+                onChange={handleChange}
+                placeholder='Subject'
+              ></input>
+              <textarea
+                name='message'
+                className={styles.textAreaInput}
+                onChange={handleChange}
+                placeholder='Message'
+                required
+              ></textarea>
             </div>
-            <div className='w-1/2 self-center mt-4'>
+            <button className='w-1/2 self-center mt-4' type='submit'>
               <BookButton name='Send' />
-            </div>
-          </div>
+            </button>
+          </form>
+
           <div className='flex flex-col md:w-1/2 w-full items-center mt-10 md:mt-6 gap-6'>
             <div>
               <p className='font-serif opacity-60 text-center'>
@@ -53,7 +128,7 @@ export default function Contact() {
             </div>
             <div className='w-2/4'>
               <p className='font-serif opacity-60 text-center'>
-                If you have any questions regarding your booking please send ut
+                If you have any questions regarding your booking please send us
                 an email with your booking number
               </p>
             </div>
