@@ -10,7 +10,7 @@ export default function Messages() {
   useEffect(() => {
     const getPopular = async () => {
       const result = await axios.get(
-        'https://project-exam2-backend.herokuapp.com/api/enquieries?populate=*'
+        'https://project-exam2-backend.herokuapp.com/api/messages'
       );
       const res = result?.data.data;
       console.log(res);
@@ -40,6 +40,7 @@ export default function Messages() {
               <tr className='flex border-b border-solid w-full mb-2'>
                 <th className='w-1/6 flex justify-start'>Name</th>
                 <th className='w-1/6 flex justify-start'>Email</th>
+                <th className='w-1/6 flex justify-start'>Subject</th>
                 <th className='w-4/6 flex justify-start'>Message</th>
               </tr>
 
@@ -51,6 +52,9 @@ export default function Messages() {
                     </td>
                     <td className='w-1/6 flex justify-start'>
                       {item.attributes.email}
+                    </td>
+                    <td className='w-1/6 flex justify-start'>
+                      {item.attributes.subject}
                     </td>
                     <td className='w-4/6 flex justify-start'>
                       {item.attributes.message}
