@@ -41,13 +41,21 @@
   width: 50%;
 }
 
-.searchInput {
-  height: 40px;
+.searchInput,
+.textAreaInput {
   width: 100%;
   border-radius: 10px;
   border: 1px solid rgba(7, 25, 44, 0.5);
   background-color: transparent;
   padding-left: 20px;
+}
+
+.textAreaInput {
+  height: 80px;
+}
+
+.searchInput {
+  height: 40px;
 }
 
 .searchInput:focus {
