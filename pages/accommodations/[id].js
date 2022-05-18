@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
 import { X } from 'tabler-icons-react';
@@ -52,34 +52,41 @@ const Accommodations = ({ accommodations }) => {
     },
   });
 
+  const form = useRef(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const jwt = getTokenFromLocalCookie();
 
-    const responseData = await fetch(
-      `https://project-exam2-backend.herokuapp.com/api/enquieries`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          data: {
-            message: data.message,
-            email: data.email,
-            checkIn: data.checkIn,
-            checkOut: data.checkOut,
-            guests: data.guests,
-            name: data.name,
+    try {
+      const responseData = await fetch(
+        `https://project-exam2-backend.herokuapp.com/api/enquieries`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${jwt}`,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
           },
-        }),
-      }
-    );
-    const result = responseData?.data;
-    setData(result);
-    return result;
+          body: JSON.stringify({
+            data: {
+              message: data.message,
+              email: data.email,
+              checkIn: data.checkIn,
+              checkOut: data.checkOut,
+              guests: data.guests,
+              name: data.name,
+            },
+          }),
+        }
+      );
+      const result = responseData?.data;
+      setData(result);
+      alert('Your trip has been booked!');
+      form.current.reset();
+    } catch (error) {
+      alert('Something went wrong');
+    }
   };
 
   const handleChange = (e) => {
@@ -166,7 +173,7 @@ const Accommodations = ({ accommodations }) => {
                       </span>
                     </button>
                   </div>
-                  <form onSubmit={handleSubmit}>
+                  <form ref={form} onSubmit={handleSubmit}>
                     <div className='relative flex flex-col lg:pl-6 lg:pr-6'>
                       <div className='flex pt-4 lg:pt-6 justify-between gap-2'>
                         <label
@@ -182,6 +189,7 @@ const Accommodations = ({ accommodations }) => {
                           max='2023-05-22'
                           name='CheckIn'
                           onChange={handleChange}
+                          required
                         />
                         <label
                           htmlFor='trip-end'
@@ -196,6 +204,7 @@ const Accommodations = ({ accommodations }) => {
                           max='2023-05-23'
                           name='CheckOut'
                           onChange={handleChange}
+                          required
                         />
                       </div>
                       <div className='flex flex-col lg:pt-6 lg:pb-6 pt-4 pb-4'>
@@ -206,6 +215,7 @@ const Accommodations = ({ accommodations }) => {
                           onChange={handleChange}
                           name='guests'
                           className='w-1/4'
+                          required
                         >
                           <option value='0'>0</option>
                           <option value='1'>1</option>
@@ -249,6 +259,7 @@ const Accommodations = ({ accommodations }) => {
                           name='name'
                           placeholder='Name'
                           className={styles.searchInput}
+                          required
                         />
                         <input
                           type='text'
@@ -256,6 +267,7 @@ const Accommodations = ({ accommodations }) => {
                           name='email'
                           placeholder='Email'
                           className={styles.searchInput}
+                          required
                         />
                         <textarea
                           onChange={handleChange}
