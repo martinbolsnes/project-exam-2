@@ -4,6 +4,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { X } from 'tabler-icons-react';
 import { getTokenFromLocalCookie } from '../../lib/auth';
+import { useRouter } from 'next/router';
 
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
@@ -38,6 +39,7 @@ export async function getStaticProps({ params }) {
 }
 
 const Accommodations = ({ accommodations }) => {
+  const router = useRouter();
   const [showMore, setShowMore] = useState();
   const [showModal, setShowModal] = useState(false);
 
@@ -82,7 +84,7 @@ const Accommodations = ({ accommodations }) => {
       );
       const result = responseData?.data;
       setData(result);
-      alert('Your trip has been booked!');
+      router.push('/bookConfirmation');
       form.current.reset();
     } catch (error) {
       alert('Something went wrong');
