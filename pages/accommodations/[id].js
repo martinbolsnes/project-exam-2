@@ -177,37 +177,43 @@ const Accommodations = ({ accommodations }) => {
                   </div>
                   <form ref={form} onSubmit={handleSubmit}>
                     <div className='relative flex flex-col lg:pl-6 lg:pr-6'>
-                      <div className='flex pt-4 lg:pt-6 justify-between gap-2'>
-                        <label
-                          htmlFor='trip-start'
-                          className='font-bold font-serif'
-                        >
-                          Check-In
-                        </label>
-                        <input
-                          type='date'
-                          id='trip-start'
-                          min='2022-05-22'
-                          max='2023-05-22'
-                          name='CheckIn'
-                          onChange={handleChange}
-                          required
-                        />
-                        <label
-                          htmlFor='trip-end'
-                          className='font-bold font-serif'
-                        >
-                          Check-Out
-                        </label>
-                        <input
-                          type='date'
-                          id='trip-end'
-                          min='2022-05-23'
-                          max='2023-05-23'
-                          name='CheckOut'
-                          onChange={handleChange}
-                          required
-                        />
+                      <div className='flex pt-4 lg:pt-6 gap-2 w-full'>
+                        <div className='flex flex-col w-1/2 justify-start'>
+                          <label
+                            htmlFor='trip-start'
+                            className='font-bold font-serif'
+                          >
+                            Check-In
+                          </label>
+                          <input
+                            className='w-1/2'
+                            type='date'
+                            id='trip-start'
+                            min='2022-05-22'
+                            max='2023-05-22'
+                            name='CheckIn'
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div className='flex flex-col w-1/2 justify-start'>
+                          <label
+                            htmlFor='trip-end'
+                            className='font-bold font-serif'
+                          >
+                            Check-Out
+                          </label>
+                          <input
+                            className='w-1/2'
+                            type='date'
+                            id='trip-end'
+                            min='2022-05-23'
+                            max='2023-05-23'
+                            name='CheckOut'
+                            onChange={handleChange}
+                            required
+                          />
+                        </div>
                       </div>
                       <div className='flex flex-col lg:pt-6 lg:pb-6 pt-4 pb-4'>
                         <label htmlFor='guest' className='font-bold font-serif'>
