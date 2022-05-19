@@ -55,11 +55,13 @@ export default function Search() {
       <main className='mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28'>
         <div className='flex justify-between w-full'>
           <div className='flex w-4/5'>
-            <input
-              placeholder='Search...'
-              onChange={(e) => searchItems(e.target.value)}
-              className='rounded-md pl-4 border border-solid border-black border-opacity-50'
-            ></input>
+            <div className='w-1/2'>
+              <input
+                placeholder='Search...'
+                onChange={(e) => searchItems(e.target.value)}
+                className='rounded-md pl-4 border border-solid border-black border-opacity-50 w-full h-10'
+              ></input>
+            </div>
             <SearchButton />
           </div>
           <div>
@@ -174,42 +176,4 @@ export default function Search() {
       </footer>
     </div>
   );
-}
-{
-  /* {allResults.map((accommodations) => (
-                <Link
-                  href={`accommodations/${accommodations.id}`}
-                  passHref
-                  key={accommodations.id}
-                >
-                  <a>
-                    <div>
-                      <div className={styles.slideImg}>
-                        <Image
-                          layout='fill'
-                          objectFit='cover'
-                          className={styles.slideImg}
-                          src={accommodations.attributes.image}
-                          alt={accommodations.name}
-                        ></Image>
-                      </div>
-                      <div className='flex justify-between pl-2'>
-                        <h2 className={styles.cardHeading}>
-                          {accommodations.attributes.name}
-                        </h2>
-                        <div className='flex items-center pr-6'>
-                          <Star color='#ead200' size={20} fill='#ead200' />
-                          <p className='pl-2'>
-                            {accommodations.attributes.rating}
-                          </p>
-                        </div>
-                      </div>
-                      <p className={styles.cardTextDiv}>
-                        ${accommodations.attributes.price}
-                        <span className={styles.cardPrice}> /per night</span>
-                      </p>
-                    </div>
-                  </a>
-                </Link>
-              ))} */
 }
