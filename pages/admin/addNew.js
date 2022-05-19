@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { getTokenFromLocalCookie } from '../../lib/auth';
+import Alert from '../../components/alert/alert';
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
 import Submenu from '../../components/admin/submenu';
@@ -14,7 +15,6 @@ export default function AddNew() {
         'https://project-exam2-backend.herokuapp.com/api/accommodations'
       );
       const res = result?.data.data;
-      console.log(res);
     };
     getPopular();
   }, []);
@@ -64,7 +64,7 @@ export default function AddNew() {
       );
       const result = responseData?.data;
       setData(result);
-      alert('A new accommodation has been created');
+      Alert('Success!', 'A new accommodation has been created');
       form.current.reset();
     } catch (error) {
       alert('Something went wrong');
@@ -91,6 +91,7 @@ export default function AddNew() {
         </h1>
         <Submenu />
         <section className='mt-4 mb-10 w-full'>
+          <div className='alert w-1/2 h-10 rounded-lg text-green font-bold font-serif'></div>
           <form
             ref={form}
             className='flex flex-col w-1/2'
