@@ -30,7 +30,7 @@ export default function FooterSection() {
               </p>
             </div>
           </div>
-          <div className='flex justify-between w-full lg:w-1/2 font-serif sm:mt-4 lg:mt-0 lg:flex-row flex-col'>
+          <div className='flex justify-between w-full lg:w-1/2 font-serif mt-4 md:mt-0 lg:mt-0 lg:flex-row flex-col'>
             <div>
               <h3 className='font-serif2 font-bold mb-2'>About</h3>
               <div className='opacity-50 font-serif mb-2 lg:mb-0'>
