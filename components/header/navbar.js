@@ -87,7 +87,7 @@ export default function Navbar() {
                 {user && (
                   <Link key={navigation.name} href='' passHref>
                     <Tooltip
-                      label='Sign out'
+                      label='Log out'
                       position='bottom'
                       withArrow
                       transitionDuration={220}
@@ -104,7 +104,7 @@ export default function Navbar() {
                 {!user && (
                   <Link key={navigation.name} href='/login' passHref>
                     <Tooltip
-                      label='Sign in'
+                      label='Log in'
                       position='bottom'
                       withArrow
                       transitionDuration={220}
