@@ -42,10 +42,7 @@ const SignIn = () => {
           </h2>
         </div>
       </div>
-      <form
-        className='flex flex-col gap-4'
-        onSubmit={handleSubmit} /* className={styles.form} */
-      >
+      <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
         <input
           type='text'
           name='identifier'
