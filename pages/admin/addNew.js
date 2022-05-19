@@ -167,7 +167,10 @@ export default function AddNew() {
               required
             ></input>
             <br />
-            <button type='submit' className='bg-blue-5 rounded py-2 text-white'>
+            <button
+              type='submit'
+              className='bg-blue-5 rounded py-2 text-white font-serif2'
+            >
               Submit
             </button>
           </form>
