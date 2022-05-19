@@ -13,7 +13,6 @@ export default function Messages() {
         'https://project-exam2-backend.herokuapp.com/api/messages'
       );
       const res = result?.data.data;
-      console.log(res);
       setResult(res);
     };
     getPopular();

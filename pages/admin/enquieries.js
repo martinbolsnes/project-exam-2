@@ -13,7 +13,6 @@ export default function Enquieries() {
         'https://project-exam2-backend.herokuapp.com/api/enquieries?populate=*'
       );
       const res = result?.data.data;
-      console.log(res);
       setResult(res);
     };
     getPopular();

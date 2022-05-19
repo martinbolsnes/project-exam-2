@@ -14,7 +14,6 @@ export default function Admin() {
         'https://project-exam2-backend.herokuapp.com/api/accommodations?populate=*'
       );
       const res = result?.data.data;
-      console.log(res);
       setResult(res);
     };
     getPopular();
