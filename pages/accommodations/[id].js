@@ -280,7 +280,7 @@ const Accommodations = ({ accommodations }) => {
                         <textarea
                           onChange={handleChange}
                           name='message'
-                          placeholder='Message'
+                          placeholder='Message (Optional)'
                           className={styles.textAreaInput}
                         />
                       </div>
