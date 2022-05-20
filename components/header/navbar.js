@@ -27,6 +27,9 @@ export default function Navbar() {
   const logout = () => {
     unsetToken();
   };
+  const login = () => {
+    router.push('/login');
+  };
   return (
     <Disclosure as='nav' className='bg-bgColor'>
       {({ open }) => (
@@ -85,7 +88,7 @@ export default function Navbar() {
               </div>
               <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
                 {user && (
-                  <Link key={navigation.name} href='' passHref>
+                  <Link key={navigation.name} href='/' passHref>
                     <Tooltip
                       label='Log out'
                       position='bottom'
@@ -110,7 +113,7 @@ export default function Navbar() {
                       transitionDuration={220}
                       transition='fade'
                     >
-                      <button onClick={logout}>
+                      <button onClick={login}>
                         <a>
                           <UserCircle size={30} />
                         </a>
