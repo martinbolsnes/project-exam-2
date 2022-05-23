@@ -7,6 +7,7 @@ import {
   BrandTwitter,
   Mail,
 } from 'tabler-icons-react';
+import Alert from '../../components/alert/alert';
 import Navbar from '../../components/header/navbar';
 import FooterSection from '../../components/footer/footer';
 import BookButton from '../../components/buttons/bookButton';
@@ -50,7 +51,7 @@ export default function Contact() {
       );
       const result = responseData?.data;
       setData(result);
-      alert('Message has been sent');
+      Alert('Success!', 'Message has been sent');
       form.current.reset();
     } catch (error) {
       alert('Something went wrong');
@@ -77,6 +78,7 @@ export default function Contact() {
         <div>
           <h1 className='font-serif2 font-bold text-3xl mb-6'>Contact</h1>
         </div>
+        <div className='alert w-1/2 h-10 rounded-lg text-green font-bold font-serif'></div>
         <div className='flex flex-col md:flex-row w-full'>
           <form
             ref={form}
