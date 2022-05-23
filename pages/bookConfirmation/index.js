@@ -33,7 +33,7 @@ export default function ConfirmationPage() {
           </div>
           <div className='flex mt-20'>
             <Logo />
-            <div className='hidden lg:block h-8 w-auto flex items-center'>
+            <div className='h-8 w-auto flex items-center'>
               <h2 className={styles.logoText}>
                 Holida<span className={styles.logoTextSpan}>z</span>e
               </h2>
