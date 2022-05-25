@@ -88,14 +88,18 @@ export default function Navbar() {
               </div>
               <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
                 {user && (
-                  <Link key={navigation.name} href='/' passHref>
+                  <Link
+                    key={navigation.name}
+                    href='/'
+                    passHref
+                    onClick={logout}
+                  >
                     <Tooltip
                       label='Log out'
                       position='bottom'
                       withArrow
                       transitionDuration={220}
                       transition='fade'
-                      onClick={logout}
                     >
                       <a className='cursor-pointer'>
                         <UserCircle size={30} onClick={logout} />
@@ -104,14 +108,18 @@ export default function Navbar() {
                   </Link>
                 )}
                 {!user && (
-                  <Link key={navigation.name} href='/login' passHref>
+                  <Link
+                    key={navigation.name}
+                    href='/login'
+                    passHref
+                    onClick={login}
+                  >
                     <Tooltip
                       label='Log in'
                       position='bottom'
                       withArrow
                       transitionDuration={220}
                       transition='fade'
-                      onClick={login}
                     >
                       <a className='cursor-pointer'>
                         <UserCircle size={30} onClick={login} />
