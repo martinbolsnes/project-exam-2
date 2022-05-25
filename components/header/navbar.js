@@ -95,6 +95,7 @@ export default function Navbar() {
                       withArrow
                       transitionDuration={220}
                       transition='fade'
+                      onClick={logout}
                     >
                       <a className='cursor-pointer'>
                         <UserCircle size={30} onClick={logout} />
@@ -110,6 +111,7 @@ export default function Navbar() {
                       withArrow
                       transitionDuration={220}
                       transition='fade'
+                      onClick={login}
                     >
                       <a className='cursor-pointer'>
                         <UserCircle size={30} onClick={login} />
