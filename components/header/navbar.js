@@ -113,9 +113,9 @@ export default function Navbar() {
                       transitionDuration={220}
                       transition='fade'
                     >
-                      <button onClick={login}>
+                      <button>
                         <a>
-                          <UserCircle size={30} />
+                          <UserCircle size={30} onClick={login} />
                         </a>
                       </button>
                     </Tooltip>
