@@ -26,6 +26,7 @@ export default function Navbar() {
   const { user } = useFetchUser();
   const logout = () => {
     unsetToken();
+    router.push('/');
   };
   const login = () => {
     router.push('/login');
@@ -88,12 +89,7 @@ export default function Navbar() {
               </div>
               <div className='absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
                 {user && (
-                  <Link
-                    key={navigation.name}
-                    href='/'
-                    passHref
-                    onClick={logout}
-                  >
+                  <Link key={navigation.name} href='/' passHref>
                     <Tooltip
                       label='Log out'
                       position='bottom'
@@ -122,7 +118,7 @@ export default function Navbar() {
                       transition='fade'
                     >
                       <a className='cursor-pointer'>
-                        <UserCircle size={30} onClick={login} />
+                        <UserCircle size={30} />
                       </a>
                     </Tooltip>
                   </Link>
