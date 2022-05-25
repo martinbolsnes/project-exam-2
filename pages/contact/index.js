@@ -54,7 +54,7 @@ export default function Contact() {
       Alert('Success!', 'Message has been sent');
       form.current.reset();
     } catch (error) {
-      alert('Something went wrong!');
+      alert('Something went wrong');
     }
   };
 
