@@ -96,11 +96,9 @@ export default function Navbar() {
                       transitionDuration={220}
                       transition='fade'
                     >
-                      <button>
-                        <a>
-                          <UserCircle size={30} onClick={logout} />
-                        </a>
-                      </button>
+                      <a className='cursor-pointer'>
+                        <UserCircle size={30} onClick={logout} />
+                      </a>
                     </Tooltip>
                   </Link>
                 )}
@@ -113,11 +111,9 @@ export default function Navbar() {
                       transitionDuration={220}
                       transition='fade'
                     >
-                      <button>
-                        <a>
-                          <UserCircle size={30} onClick={login} />
-                        </a>
-                      </button>
+                      <a className='cursor-pointer'>
+                        <UserCircle size={30} onClick={login} />
+                      </a>
                     </Tooltip>
                   </Link>
                 )}
