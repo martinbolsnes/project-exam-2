@@ -96,9 +96,9 @@ export default function Navbar() {
                       transitionDuration={220}
                       transition='fade'
                     >
-                      <button onClick={logout}>
+                      <button>
                         <a>
-                          <UserCircle size={30} />
+                          <UserCircle size={30} onClick={logout} />
                         </a>
                       </button>
                     </Tooltip>
