@@ -1,8 +1,10 @@
-## Admin login:
+```Admin login:
 
-### Username: admin
+Username: admin
+Password: Pass12345
 
-### Password: Pass12345
+Production website: https://project-exam-2-five.vercel.app
+```
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
