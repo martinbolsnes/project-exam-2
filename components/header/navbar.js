@@ -31,6 +31,10 @@ export default function Navbar() {
   const login = () => {
     router.push('/login');
   };
+
+  const logoOnclick = () => {
+    router.push('/');
+  };
   return (
     <Disclosure as='nav' className='bg-bgColor'>
       {({ open }) => (
@@ -48,7 +52,10 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className='flex-1 flex items-center justify-center sm:items-stretch sm:justify-start'>
-                <div className='flex-shrink-0 flex items-center'>
+                <div
+                  className='flex-shrink-0 flex items-center cursor-pointer'
+                  onClick={logoOnclick}
+                >
                   <Logo className='block lg:hidden h-8 w-auto' />
                   <div className='hidden lg:block h-8 w-auto flex items-center'>
                     <h2 className={styles.logoText}>
